@@ -1,0 +1,62 @@
+@use '../vendors' as *;
+
+.room-card {
+  display: flex;
+  flex-direction: column;
+  width: 344px;
+  height: 382px;
+  @include apply-utility('rounded', '2xl');
+  background-color: white;
+  overflow: hidden;
+  margin: 0;
+  header {
+    position: relative;
+    width: 100%;
+    max-height: 156px;
+    overflow: hidden;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .price {
+      position: absolute;
+      padding: 8px;
+      width: fit-content;
+      max-height: 48px;
+      top: 50%;
+      right: 0;
+      background: get-color('black-50');
+      border-top-left-radius: 18px;
+      border-bottom-left-radius: 18px;
+      backdrop-filter: blur(4px);
+    }
+  }
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    padding: 16px;
+
+    .room-info {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+      text-transform: capitalize;
+
+      & > * > * + * {
+        margin-left: 8px;
+      }
+    }
+  }
+
+  footer {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 16px;
+    margin-top: auto;
+  }
+}

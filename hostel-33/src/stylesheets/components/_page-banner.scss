@@ -1,0 +1,78 @@
+@use '../vendors' as *;
+
+.page-banner {
+  position: relative;
+
+  swiper-container {
+    swiper-slide {
+      min-height: 500px;
+      background-size: cover;
+      background-position: center;
+      @include media-query('md') {
+        min-height: 685px;
+        background-position: revert;
+      }
+    }
+  }
+
+  .content {
+    position: absolute;
+    inset: 0;
+    min-width: 450px;
+    width: fit-content;
+    height: fit-content;
+    margin-inline: auto;
+    margin-top: 130px;
+    @include apply-utility('stack', '20');
+    .content-wrapper {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 60px;
+      padding-inline: 100px;
+      .title {
+        color: get-color('primary');
+        @include apply-utility('text', '600');
+        max-width: 20ch;
+
+        @include media-query('sm') {
+          @include apply-utility('text', '700');
+        }
+
+        @include media-query('lg') {
+          @include apply-utility('text', '900');
+        }
+      }
+      .divider {
+        width: 50%;
+        height: 6px;
+        background-color: get-color('primary');
+        @include apply-utility('rounded', 'full');
+        align-self: self-start;
+      }
+      .btn-group {
+        align-self: self-start;
+      }
+    }
+  }
+
+  .page-banner__content {
+    max-width: 1200px;
+    padding-block: 38px;
+    margin-inline: auto;
+    text-transform: uppercase;
+
+    .page-banner__title {
+      @include apply-utility('text', '500');
+      color: white;
+      @include apply-utility('fw', 'medium');
+      @include media-query('sm') {
+        @include apply-utility('text', '600');
+      }
+      @include media-query('md') {
+        @include apply-utility('text', '800');
+      }
+    }
+  }
+}

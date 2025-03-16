@@ -1,0 +1,61 @@
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the footer of the site/application.
+// -----------------------------------------------------------------------------
+@use '../vendors' as *;
+@use '../components//menu-item';
+
+.site-footer {
+  background-color: get-color('black-50');
+  .footer-container {
+    display: flex;
+    max-width: 1200px;
+    padding-top: 80px;
+    padding-bottom: 180px;
+    margin-inline: auto;
+    position: relative;
+    #footer-navigation {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      justify-content: space-between;
+      flex: 2;
+
+      & > * {
+        display: grid;
+        grid-template-rows: auto 1fr;
+        gap: 26px;
+      }
+
+      .menu-list {
+        display: grid;
+        gap: 24px;
+        align-content: start;
+
+        @extend %menu-item;
+      }
+
+      .title {
+        text-transform: uppercase;
+        @include apply-utility('text', '600');
+        color: get-color('black-500');
+      }
+    }
+
+    .support-form {
+      flex: 1;
+      margin-top: -200px;
+      width: 530px;
+      max-height: 786px;
+    }
+  }
+
+  .site-info {
+    max-height: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-block: 48px;
+    gap: 4px;
+    color: get-color('black-800');
+    font-size: 24px;
+  }
+}

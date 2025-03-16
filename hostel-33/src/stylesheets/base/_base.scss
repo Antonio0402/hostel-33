@@ -1,0 +1,72 @@
+@use '../abstracts';
+@use '../vendors/' as *;
+
+// -----------------------------------------------------------------------------
+// This file contains very basic styles.
+// -----------------------------------------------------------------------------
+
+* {
+  margin: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+#page {
+  height: 100%;
+  isolation: isolate;
+  max-width: 1200px;
+  margin-inline: auto;
+}
+
+body {
+  text-rendering: optimizeSpeed;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+  @include apply-utility('font', 'base');
+  @include apply-utility('text', '400');
+  @include apply-utility('fw', 'normal');
+}
+
+nav:where(ol, ul) {
+  list-style: none;
+}
+
+a[class] {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul[role='list'],
+ol[role='list'] {
+  list-style: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/**
+ * Basic styles for links
+ */
+a {
+  color: abstracts.$brand-color;
+  text-decoration: none;
+
+  @include abstracts.on-event {
+    color: abstracts.$text-color;
+    text-decoration: underline;
+  }
+}

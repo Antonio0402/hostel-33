@@ -1,0 +1,30 @@
+@charset "UTF-8";
+
+// 1. Vendors
+@forward 'vendors';
+
+// 2. Base stuff
+@use 'base/base';
+@use 'base/helpers';
+
+// 3. Layout-related sections
+@use 'layout/footer';
+@use 'layout/header';
+@use 'layout/section';
+
+// 4. Components
+@use 'components/button';
+@use 'components/page-banner';
+@use 'components/switch-group';
+@use 'components/room-card';
+@use 'components/control-group';
+@use 'components/support-card';
+@use 'components/menu-item';
+
+// 5. Pages
+@use 'pages/home';
+@use 'pages/contact';
+
+// 6. Themes
+@use 'themes/default';
+// Generate utilities after everything else

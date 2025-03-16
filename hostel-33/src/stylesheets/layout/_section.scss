@@ -1,0 +1,299 @@
+@use '../vendors/' as *;
+
+.two-column-section {
+  display: grid;
+  grid-template-columns: auto 1fr;
+}
+
+.expanded-container:has(> .two-column-section) {
+  background-color: get-color('black-50');
+}
+
+.two-column-section[data-section='why-choose-us'] {
+  justify-items: center;
+  padding-block: 64px;
+  @include apply-utility('px', 'm');
+  gap: 82px;
+
+  img {
+    width: 100%;
+    max-height: 580px;
+  }
+  .content {
+    display: grid;
+    gap: 24px;
+
+    .heading {
+      color: get-color('primary');
+      @include apply-utility('text', '800');
+      @include apply-utility('fw', 'medium');
+      max-width: 20ch;
+    }
+
+    .sub-heading {
+      color: get-color('secondary');
+      @include apply-utility('text', '600');
+      @include apply-utility('fw', 'light');
+      max-width: 30ch;
+    }
+
+    .description {
+      color: get-color('black');
+      @include apply-utility('text', '400');
+      text-wrap: balance;
+    }
+
+    &:last-child {
+      align-self: self-end;
+    }
+
+    .headline[data-style='headline-cta'] {
+      display: grid;
+      align-items: end;
+      justify-items: center;
+      @include apply-utility('text', '500');
+      color: get-color('primary');
+      text-transform: uppercase;
+    }
+  }
+}
+
+.two-column-section[data-section='selling-points'] {
+  justify-items: center;
+  padding-block: 96px;
+  @include apply-utility('px', 'm');
+  .img-wrapper {
+    filter: drop-shadow(0px 9px 80px rgba(0, 0, 0, 0.16)) drop-shadow(0px 3.39561px 33.4221px rgba(0, 0, 0, 0.115017))
+      drop-shadow(0px 1.61773px 17.869px rgba(0, 0, 0, 0.0953772))
+      drop-shadow(0px 0.863644px 10.0172px rgba(0, 0, 0, 0.08))
+      drop-shadow(0px 0.45665px 5.32008px rgba(0, 0, 0, 0.0646228))
+      drop-shadow(0px 0.195108px 2.21381px rgba(0, 0, 0, 0.0449833));
+    img {
+      width: 100%;
+      max-height: 580px;
+    }
+  }
+
+  .points {
+    display: grid;
+    align-content: center;
+    gap: 64px;
+
+    .title {
+      max-width: 20ch;
+      text-transform: uppercase;
+    }
+    .point-list {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: repeat(3, auto);
+      row-gap: 32px;
+      grid-auto-flow: column;
+      justify-content: space-between;
+      margin: 0;
+      padding: 0;
+
+      li {
+        display: flex;
+        align-items: center;
+        padding: 10px;
+        @include apply-utility('gap', '2xs');
+      }
+    }
+    .btn {
+      align-self: flex-end;
+      margin-inline: auto;
+      width: fit-content;
+    }
+  }
+}
+
+.hostel-rooms-section {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  row-gap: 64px;
+  padding-block: 96px;
+
+  .headline-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .title {
+      text-transform: uppercase;
+    }
+  }
+  .room-slider {
+    position: relative;
+    max-width: 1200px;
+    padding: 50px 0;
+    swiper-container {
+      @include apply-utility('stack', '20');
+      overflow: visible; /* Allow overflow for 3D effects */
+      swiper-slide {
+        margin-bottom: 24px;
+        // width: fit-content;
+        // display: grid;
+        place-items: center;
+        max-width: fit-content;
+        @include apply-utility('rounded', '2xl');
+        overflow: hidden;
+        transition:
+          transform 0.5s,
+          opacity 0.3s;
+        & > * {
+          filter: none;
+          transition: filter 0.3s ease;
+        }
+      }
+    }
+    swiper-slide:not(.swiper-slide-active) {
+      opacity: 0.7;
+      filter: grayscale(1);
+    }
+    swiper-slide.swiper-slide-active {
+      filter: drop-shadow(8px 11px 9px rgba(0, 0, 0, 0.25));
+    }
+  }
+}
+
+.two-column-section[data-section='exclusive-advantages'] {
+  grid-template-columns: 1fr 1fr;
+  position: relative;
+  padding-block: 32px;
+  gap: 80px;
+  justify-content: center;
+
+  .panel {
+    position: absolute;
+    inset: 0;
+    top: 64px;
+    width: 532px;
+    height: 800px;
+    border-radius: 60px;
+    background-color: #c4c4c4;
+
+    .ribbon {
+      margin-top: 70%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 32px;
+      gap: 64px;
+      position: absolute;
+      max-width: 424px;
+      max-height: 266px;
+      background: #ffffff;
+      border-radius: 0px 18px 18px 0px;
+
+      .label {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 16px;
+      }
+    }
+  }
+
+  .advantages {
+    grid-column: 2 / -1;
+    display: grid;
+    gap: 32px;
+    text-transform: uppercase;
+
+    .title {
+      text-wrap: revert;
+    }
+
+    .advantages-list {
+      display: grid;
+      gap: 64px;
+
+      .advantage-item {
+        display: flex;
+        align-items: center;
+        padding-block: 16pxl;
+        gap: 32px;
+
+        .icon-wrapper {
+          width: 114px;
+          height: 114px;
+          background-color: get-color('secondary');
+          border-radius: 12px;
+          display: grid;
+          place-items: center;
+          color: white;
+        }
+      }
+    }
+  }
+}
+
+.address-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-block: 285px;
+
+  .address-container {
+    display: flex;
+    background: #ffffff;
+    box-shadow: 8px 11px 9px rgba(0, 0, 0, 0.25);
+    border-radius: 18px;
+    min-height: 468px;
+    border: 2px solid get-color('black-100');
+    .address {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding-inline: 32px;
+      padding-block: 8px;
+      gap: 16px;
+
+      .address-item {
+        .title {
+          display: flex;
+          align-items: center;
+          font-size: 24px;
+          @include apply-utility('fw', 'light');
+          color: get-color('black');
+          &::before {
+            content: '';
+            display: inline-block;
+            width: 4px;
+            height: 24px;
+            background-color: get-color('primary');
+            margin-inline-end: 16px;
+          }
+        }
+        .content {
+          display: flex;
+          align-items: baseline;
+          padding-block: 16px;
+          gap: 16px;
+
+          & > p {
+            text-wrap: balance;
+            max-width: 40ch;
+          }
+        }
+      }
+    }
+
+    .map-container {
+      max-width: 620px;
+      position: relative;
+      overflow: hidden;
+    }
+  }
+}
+
+.two-column-section[data-section='contact-section'] {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-content: space-between;
+  gap: 132px;
+  padding-block: 96px;
+}
