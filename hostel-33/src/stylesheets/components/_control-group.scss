@@ -1,6 +1,7 @@
 @use '../vendors' as *;
 
 .control-group {
+  display: none;
   position: absolute;
   inset-block: 0;
   inset-inline: 48px;
@@ -21,9 +22,16 @@
   }
   .button-prev {
     left: 0;
+
+    &.hidden {
+      display: none;
+    }
   }
   .button-next {
     right: 0;
+    &.hidden {
+      display: none;
+    }
   }
   .pagination {
     position: absolute;
@@ -50,6 +58,14 @@
       background-color: white;
     }
   }
+
+  @include media-query('md') {
+    display: revert;
+  }
+}
+
+.control-group[data-style='page-banner-control'] {
+  display: none;
 }
 
 .control-group[data-style='room-slider-control'] {

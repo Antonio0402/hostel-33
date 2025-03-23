@@ -1,6 +1,7 @@
 class SwiperBanner {
-  constructor() {
+  constructor(targetParent) {
     // Wait for both DOM and Swiper to be fully loaded
+    this.targetParent = targetParent;
     this.initWhenReady();
   }
 
@@ -15,9 +16,14 @@ class SwiperBanner {
 
   setupSwiper() {
     // Get elements after DOM is loaded
-    this.swiperEl = document.querySelector('swiper-container');
-    const controls = document.querySelector('.page-banner .control-group');
-
+    if (!this.targetParent) {
+      console.log(this.targetParent);
+      console.warn('Swiper target parent not found in the DOM');
+      return;
+    }
+    this.parent = document.querySelector(this.targetParent);
+    this.swiperEl = this.parent?.querySelector('swiper-container');
+    const controls = this.parent?.querySelector('.control-group');
     if (!this.swiperEl || !controls) {
       console.warn('Swiper elements not found in the DOM');
       return;
@@ -27,11 +33,10 @@ class SwiperBanner {
     this.next = controls.querySelector('.button-next');
     this.pagination = controls.querySelector('.pagination');
 
+    // Check if 
+
     // Wait for Swiper to be initialized
-    this.swiperEl.addEventListener('swiper-init', () => {
-      console.log('Swiper initialized!');
-      this.bindEvents();
-    });
+    this.bindEvents();
   }
 
   bindEvents() {
@@ -49,13 +54,26 @@ class SwiperBanner {
         bullet.setAttribute('data-index', index);
         bullet.addEventListener('click', (e) => {
           const clickedIndex = parseInt(e.target.getAttribute('data-index'));
-          this.swiperEl.swiper.slideTo(clickedIndex);
 
-          // Update active bullet
-          bullets.forEach(b => b.classList.remove('pagination-bullet-active'));
-          e.target.classList.add('pagination-bullet-active');
+          if (this.swiperEl && this.swiperEl.swiper) {
+            // Use swiper to go to the slide
+            this.swiperEl.swiper.slideTo(clickedIndex);
+          }
+
+          // Use the existing updatePagination function for consistency
+          this.updatePagination(clickedIndex);
         });
       });
+
+      // Set up slide change listener once, outside the click handlers
+      if (this.swiperEl && this.swiperEl.swiper) {
+        this.swiperEl.swiper.on('slideChange', () => {
+          this.updatePagination(this.swiperEl.swiper.activeIndex);
+        });
+
+        // Initialize pagination with current slide
+        this.updatePagination(this.swiperEl.swiper.activeIndex);
+      }
     }
   }
 
@@ -70,11 +88,28 @@ class SwiperBanner {
       this.swiperEl.swiper.slideNext();
     }
   }
-}
 
-// Ensure the class is initialized
-document.addEventListener('DOMContentLoaded', () => {
-  new SwiperBanner();
-});
+  updatePagination(activeIndex) {
+    if (!this.pagination) return;
+
+    const bullets = this.pagination.querySelectorAll('.pagination-bullet');
+    bullets.forEach((bullet, index) => {
+      // Set aria-selected based on whether index matches activeIndex
+      bullet.setAttribute('aria-selected', index === activeIndex ? 'true' : 'false');
+      if (activeIndex === 0) {
+        this.prev.classList.add('hidden');
+      }
+      else {
+        this.prev.classList.remove('hidden');
+      }
+      if (activeIndex === bullets.length - 1) {
+        this.next.classList.add('hidden');
+      }
+      else {
+        this.next.classList.remove('hidden');
+      }
+    });
+  }
+}
 
 export default SwiperBanner;

@@ -68,11 +68,13 @@ Please fill in your phone number for direct support and latest deal.', 'hostel-3
       printf(esc_html__('The copyright %1$s by %2$s', 'hostel-33'), $current_year, 'Antonio');
       ?>
     </a>
-    <span class="sep"> | </span>
-    <?php
-    /* translators: 1: Theme name, 2: Theme author. */
-    printf(esc_html__('Theme: %1$s by %2$s.', 'hostel-33'), 'hostel-33', '<a href="http://antonio-doan.tech">Antonio</a>');
-    ?>
+    <div class="credits">
+      <span class="sep"> | </span>
+      <?php
+      /* translators: 1: Theme name, 2: Theme author. */
+      printf(esc_html__('Theme: %1$s by %2$s.', 'hostel-33'), 'hostel-33', '<a href="http://antonio-doan.tech">Antonio</a>');
+      ?>
+    </div>
   </div><!-- .site-info -->
 </footer><!-- #colophon -->
 </div><!-- #page -->

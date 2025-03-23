@@ -42,7 +42,7 @@ function hostel_33_register_required_plugins()
     array(
       'name'      => 'Redux Framework',
       'slug'      => 'redux-framework',
-      'source'    => true,
+      'required'    => false,
     ),
 
     // This is an example of how to include a plugin from the WordPress Plugin Repository.

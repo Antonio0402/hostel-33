@@ -37,7 +37,7 @@
     "map": false
   },
   "scripts": {
-    "dev": "wp-scripts start src/js/main",
+    "dev": "wp-scripts start src/js/main src/js/branch-switch src/js/address-map",
     "build": "wp-scripts build src/js/main",
     "watch:sass": "npx sass src/stylesheets/main.scss build/main.css --source-map --silence-deprecation import --silence-deprecation slash-div -w",
     "compile:css": "npx sass src/stylesheets/main.scss build/main.css -q && stylelint 'build/*.css' --fix || true && stylelint '*.css' --fix",

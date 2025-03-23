@@ -31,21 +31,27 @@
     <?php
     $is_front_page = is_front_page() || is_home();
     ?>
-    <header id="masthead" class="site-header" style="position: <?php echo $is_front_page ? 'fixed' : 'relative'; ?>; background-color: <?php $is_front_page ? 'transparent' : 'white'; ?>;">
+    <header id="masthead" class="site-header" style="position: <?php echo $is_front_page ? 'fixed' : 'relative'; ?>; background-color: <?php echo $is_front_page ? 'transparent' : 'white'; ?>;">
       <div class="header-container">
         <div class="site-branding">
           <a href="<?php echo site_url(); ?>">
             <img src="<?php echo esc_url(site_url('/wp-content/uploads/2025/03/hostel-33-logo.png')) ?>" alt="<?php bloginfo('name'); ?>">
           </a>
         </div>
-        <nav id="site-navigation" class="main-navigation desktop">
-          <ul id="primary-menu" class="main-menu">
+        <button class="btn menu-hamburger hide-on-desktop" data-style="btn-icon" aria-controls="main-navigation" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <div class="overlay fade-out"></div>
+        <nav id="site-navigation" class="main-navigation">
+          <ul id="primary-menu" class="main-menu hide-on-mobile" data-visible="false">
             <?php echo get_header_nav_menu('Primary Menu'); ?>
           </ul>
         </nav>
-        <nav id="site-navigation" class="main-navigation mobile">
-        </nav>
-        <button role="button" class="btn site-cta" data-style="btn-cta">
+        <!-- Open a call to target phone number -->
+        <button role="button" class="btn site-cta" data-style="btn-cta"
+          onclick="window.open('tel:02963861371')" aria-label="<?php esc_html_e('Call to book', 'hostel-33'); ?>">
           <i class="fa-solid fa-phone"></i>
           <span class="screen-reader-text"><?php esc_html_e('Call to book', 'hostel-33'); ?></span>
           <?php esc_html_e('Call to book', 'hostel-33'); ?>

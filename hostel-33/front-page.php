@@ -1,4 +1,8 @@
 <?php
+// Start using session
+if (!session_id()) {
+  session_start();
+}
 get_header();
 $banner_images = HOSTEL_33_BANNER_IMAGES;
 
@@ -8,14 +12,19 @@ $exclusive_advantages = HOSTEL_33_EXCLUSIVE_ADVANTAGES;
 ?>
 
 <div class="page-banner expanded-container">
-  <swiper-container slides-per-view="1" speed="500" loop="true">
+  <swiper-container
+    slides-per-view="1"
+    speed="500"
+    effect="fade"
+    autoplay="true"
+    autoplay-delay="5000">
     <?php
     foreach ($banner_images as $key => $banner_image): ?>
       <swiper-slide style="background-image: url(<?php echo $banner_image['image']; ?>);" aria-label="<?php echo $banner_image['alt']; ?>"></swiper-slide>
     <?php endforeach;
     ?>
   </swiper-container>
-  <div class="control-group">
+  <div class="control-group" data-style="page-banner-control">
     <?php echo get_slider_control_group($banner_images, 'image'); ?>
   </div>
   <div class="content">
@@ -23,8 +32,8 @@ $exclusive_advantages = HOSTEL_33_EXCLUSIVE_ADVANTAGES;
       <h1 class="title"><?php esc_html_e('A peaceful place with good-bargain-budget', 'hostel-33') ?></h1>
       <div class="divider"></div>
       <div class="btn-group">
-        <button role="navigation" class="btn" data-style="gradient">
-          <span class="screen-reader-text"><?php esc_html_e('check THE UNBEATABLE PRICE today', 'hostel-33'); ?></span>
+        <button role="navigation" class="btn" data-style="gradient" data-scroll-to="#hostel-rooms-section">
+          <span class=" screen-reader-text"><?php esc_html_e('check THE UNBEATABLE PRICE today', 'hostel-33'); ?></span>
           <?php esc_html_e('Check THE UNBEATABLE PRICE today', 'hostel-33'); ?><i class="fa-solid fa-arrow-down"></i></button>
       </div>
     </div>
@@ -72,22 +81,27 @@ $all_branch = new WP_Query(array(
 ));
 ?>
 
-<section class="hostel-rooms-section">
+<section id="hostel-rooms-section" class="hostel-rooms-section">
   <div class="headline-section">
     <h3 class="title | color-primary text-800">Hotel Rooms</h3>
     <?php if ($all_branch->have_posts()) :
       $post_count = $all_branch->post_count;
       $index = 0;
-      $current_branch = $all_branch->posts[0];
+      // Check if the branch_id session is set
+      if (isset(($_COOKIE['hostel33_branch'])) && $_COOKIE['hostel33_branch'] !== null) {
+        $current_branch_id = get_post($_COOKIE['hostel33_branch']);
+        $current_branch = $all_branch->posts[array_search($current_branch_id, $all_branch->posts)];
+      } else {
+        $current_branch = $all_branch->posts[0];
+      }
     ?>
-      <div class="switch-group">
+      <form class="switch-group" action="POST">
         <style>
           .switch-group {
             width: <?php echo 156 * $all_branch->post_count; ?>px;
-          }
-
-          .switch-group label[data-style='switch'].active {
-            transform: translateX(<?php echo 146 * $index; ?>px);
+            --padding-block: 12px;
+            --padding-inline: 24px;
+            --group-padding: 8px;
           }
         </style>
         <?php
@@ -95,85 +109,40 @@ $all_branch = new WP_Query(array(
           $all_branch->the_post();
           $default_checked = $index === 0 ? 'active' : '';
         ?>
+          <style>
+            .switch-group label[data-switch="<?php echo $index; ?>"].active~.switch-highlight {
+              transform: translateX(<?php echo 100 * $index; ?>%);
+              width: calc(100% / <?php echo $all_branch->post_count; ?> - var(--padding-inline) / 2 + var(--group-padding) / 2);
+            }
+          </style>
           <input hidden type="radio" name="branch" id="branch-<?php the_ID(); ?>" data-checked="<?php the_ID() ?>">
-          <label class="btn <?php echo $default_checked ?>" data-style="switch" for="branch-<?php the_ID(); ?>"><?php the_title(); ?></label>
+          <label class="btn <?php echo $default_checked ?>" data-switch="<?php echo $index; ?>" data-style="switch" for="branch-<?php the_ID(); ?>"><?php the_title(); ?></label>
         <?php
           $index++;
         endwhile;
         wp_reset_postdata();
         ?>
-      </div>
+        <div class="switch-highlight"></div>
+      </form>
     <?php endif; ?>
   </div>
   <?php
-  $all_room_of_branch = new WP_Query(array(
-    'post_type' => 'room',
-    'posts_per_page' => -1,
-    'meta_query' => array(
-      array(
-        'key' => 'branch',
-        'compare' => 'LIKE',
-        'value' => '"' . $current_branch->ID . '"'
-      )
-    ),
-    'tax_query' => array(
-      array(
-        'taxonomy' => 'room_type',
-        'field' => 'slug',
-        'terms' => get_terms(['taxonomy' => 'room_type', 'fields' => 'slugs', 'hide_empty' => false]),
-        'operator' => 'IN'
-      )
-    )
-  ));
+  $all_room_of_branch = get_all_room_of_brach($current_branch->ID);
   // Only show one room in each room_type taxonomy
-  if ($all_room_of_branch->have_posts()) :
+  if ($all_room_of_branch !== null) :
     $unique_room_of_room_types = [];
   ?>
+    <!-- Loader -->
+    <div class="lds-ellipsis loader" style="display: none;">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
     <div class="room-slider">
-      <swiper-container
-        id="rooms-swiper"
-        slides-per-view="auto"
-        speed="500"
-        effect="coverflow"
-        coverflow-effect-rotate="50"
-        coverflow-effect-depth="100"
-        coverflow-effect-stretch="0"
-        coverflow-effect-modifier="1"
-        coverflow-effect-slide-shadows="true"
-        centered-slides="true"
-        space-between="30"
-        active-slide-center="true"
-        grab-cursor="true"
-        keyboard="true">
-        <?php
-        $room_card_index = 0;
-        while ($all_room_of_branch->have_posts()) :
-          $all_room_of_branch->the_post();
-          $post_id = get_the_ID();
-          $room_types = wp_get_post_terms($post_id, 'room_type', array('fields' => 'names'));
-          // Check is the room type is not empty array
-          if (!empty($room_types)) {
-            $room_type_slug = strip_tags($room_types[0]); // Get the first/primary room type
-            if (!in_array($room_type_slug, $unique_room_of_room_types)) {
-              $unique_room_of_room_types[] = $room_type_slug;
-        ?>
-              <swiper-slide>
-                <?php get_template_part('template-parts/content-room-card'); ?>
-              </swiper-slide>
-        <?php
-              $room_card_index++;
-            }
-          } else {
-            continue;
-          }
-        endwhile;
-
-        ?>
-      </swiper-container>
-      <div class="control-group" data-style="room-slider-control">
-        <?php echo get_slider_control_group($unique_room_of_room_types);
-        ?>
-      </div>
+      <?php
+      get_template_part('template-parts/content-room-slider', null, array('all_room_of_branch' => $all_room_of_branch, 'unique_room_of_room_types' => $unique_room_of_room_types));
+      ?>
     </div>
   <?php
     wp_reset_postdata();
@@ -190,7 +159,7 @@ $all_branch = new WP_Query(array(
           <h4><?php esc_html_e('Stay more - save more', 'hostel-33') ?></h4>
           <p><?php echo esc_html__('Just from ', 'hostel-33') . '<span class="color-primary">' . esc_html__('$20/5 beds', 'hostel-33') . '</span>' . esc_html__(' - room/night', 'hostel-33'); ?></p>
         </div>
-        <button class="btn" data-style="btn-cta" data-variant="btn-sm">
+        <button class="btn" data-style="btn-cta" data-variant="btn-sm" onclick="window.open('tel:02963861371')" aria-label="<?php esc_html_e('Call to book', 'hostel-33'); ?>">
           <i class="fa-solid fa-phone"></i>
           <?php esc_html_e('Call to book', 'hostel-33') ?>
         </button>
@@ -215,41 +184,13 @@ $all_branch = new WP_Query(array(
   </div>
 </section>
 <?php
-$address_detail = get_post_meta($current_branch->ID, 'address_detail', true);
-$phone_number = get_post_meta($current_branch->ID, 'phone_number', true);
-$email = get_post_meta($current_branch->ID, 'branch_email', true);
-$map_embed_key = get_post_meta($current_branch->ID, 'map_embed_location', true);
 
 ?>
 
 <section class="address-section">
-  <div class="address-container">
-    <div class="address">
-      <div class="address-item">
-        <h4 class="title"><?php esc_html_e('Address', 'hostel-33') ?></h4>
-        <div class="content">
-          <i class="fa-solid fa-map-marker-alt fa-lg color-primary"></i>
-          <p class="text-500 color-black"><?php esc_html_e($address_detail, 'hostel-33') ?></p>
-        </div>
-      </div>
-      <div class="address-item">
-        <h4 class="title"><?php esc_html_e('Contact Details', 'hostel-33') ?></h4>
-        <div class="content">
-          <i class="fa-solid fa-phone fa-lg color-primary"></i>
-          <p class="text-500 color-black"><?php esc_html_e("Phone: $phone_number", 'hostel-33') ?></p>
-        </div>
-        <?php if ($email): ?>
-          <div class="content">
-            <i class="fa-solid fa-envelope fa-lg color-primary"></i>
-            <p class="text-500 color-black"><?php esc_html_e("Email: $email", 'hostel-33') ?></p>
-          </div>
-        <?php endif; ?>
-      </div>
-    </div>
-    <div class="map-container">
-      <iframe src="https://www.google.com/maps/embed?<?php echo $map_embed_key ?> width=" 640" height="480" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-    </div>
-  </div>
+  <?php
+  get_template_part('template-parts/content-address-map', null, array('id' => $current_branch->ID));
+  ?>
 </section>
 
 <?php

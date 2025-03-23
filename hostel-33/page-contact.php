@@ -1,4 +1,7 @@
 <?php
+if (!session_id()) {
+  session_start();
+}
 get_header();
 ?>
 
@@ -29,7 +32,12 @@ get_header();
             'order' => 'ASC'
           ));
           if ($all_branch->have_posts()) :
-            $current_branch = $all_branch->posts[0];
+            if (isset(($_SESSION['branch_id']))) {
+              $current_branch_id = get_post($_SESSION['branch_id']);
+              $current_branch = $all_branch->posts[array_search($current_branch_id, $all_branch->posts)];
+            } else {
+              $current_branch = $all_branch->posts[0];
+            }
             $address_detail = get_post_meta($current_branch->ID, 'address_detail', true);
             $phone_number = get_post_meta($current_branch->ID, 'phone_number', true);
             $email = get_post_meta($current_branch->ID, 'branch_email', true);

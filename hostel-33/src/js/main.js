@@ -1,10 +1,10 @@
 import './../stylesheets/main.scss';
 
+import StickyHeader from './sticky-header';
 import SwiperBanner from './swiper-banner';
+import HamburgerMenu from './menu-hamburger';
 
-// Initialize components
-document.addEventListener('DOMContentLoaded', () => {
-  if (document.querySelector('swiper-container')) {
-    new SwiperBanner();
-  }
-});
+const stickyHeader = new StickyHeader();
+// const pageBannerSwiper = new SwiperBanner('.page-banner');
+const roomSliderSwiper = new SwiperBanner('.room-slider');
+const hamburgerMenu = new HamburgerMenu();

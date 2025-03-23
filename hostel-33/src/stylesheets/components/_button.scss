@@ -19,6 +19,13 @@
 .btn[data-style='btn-cta'] {
   background-color: get-color('primary');
   color: white;
+  @include apply-utility('text', '300');
+  @include apply-utility('px', 's');
+
+  @include media-query('md') {
+    @include apply-utility('text', '400');
+    @include apply-utility('px', 'm');
+  }
 }
 .btn[data-style='btn-cta']:hover,
 .btn[data-style='btn-cta']:focus,
@@ -30,6 +37,14 @@
   background: get-color('brand-gradient');
   opacity: 0.9;
   color: white;
+  min-width: fit-content;
+  @include apply-utility('text', '200');
+  @include apply-utility('px', 's');
+
+  @include media-query('md') {
+    @include apply-utility('text', '400');
+    @include apply-utility('px', 'm');
+  }
 }
 .btn[data-style='gradient']:hover,
 .btn[data-style='gradient']:focus,
@@ -47,6 +62,18 @@
   background-color: transparent;
   border: 2.8px solid get-color('primary');
   color: get-color('primary');
+}
+
+.btn[data-style='btn-icon'] {
+  background-color: get-color('primary');
+  color: white;
+  @include apply-utility('rounded', 'full');
+  @include apply-utility('py', 's');
+  @include apply-utility('px', 'xs');
+
+  & > * {
+    background: white;
+  }
 }
 
 .btn[data-style='btn-outline']:hover,

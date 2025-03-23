@@ -149,7 +149,7 @@ function hostel_33_scripts()
   wp_style_add_data('hostel-33-style', 'rtl', 'replace');
   wp_enqueue_script('hostel-33-swiper', 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js', array(), _S_VERSION, false);
 
-  wp_enqueue_script('hostel-33-main-script', get_template_directory_uri() . '/build/main.js', array('hostel-33-swiper'), time(), true);
+  wp_enqueue_script('hostel-33-main-script', get_template_directory_uri() . '/build/main.js', array('hostel-33-swiper', 'jquery'), time(), true);
   wp_add_inline_script('hostel-33-main-script', 'console.log("Swiper script loaded successfully");', 'after');
   wp_enqueue_style('hostel-33-google-fonts', 'https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Oswald:wght@200..700&display=swap');
   wp_enqueue_style('hostel-33-main-style', get_template_directory_uri() . '/build/main.css', array('hostel-33-google-fonts'), _S_VERSION);
@@ -160,6 +160,7 @@ function hostel_33_scripts()
 
   wp_localize_script('hostel-33-main-script', 'hostel33Data', array(
     'root_url' => get_site_url(),
+    'ajax_url' => admin_url('admin-ajax.php'),
     'nonce' => wp_create_nonce('wp_rest'),
   ));
 }
@@ -195,6 +196,11 @@ require get_template_directory() . '/inc/custom-header.php';
  * Utilities functions
  */
 require get_template_directory() . '/inc/utils/index.php';
+
+/** 
+ * Ajax functions
+ */
+require get_template_directory() . '/inc/ajax-init.php';
 
 /**
  * Custom template tags for this theme.

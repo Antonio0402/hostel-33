@@ -9,7 +9,7 @@ $room_title_base_on_bed = [
 
 $room_image = get_field('room_thumbnail_images');
 $room_price = get_field('price');
-$room_status = get_field('is_available');
+$room_status = get_field('is_availability');
 $room_bed = get_field('number_of_beds');
 $room_bathroom = get_field('number_of_bathrooms');
 $room_title_suffix = esc_html__($room_title_base_on_bed[$room_bed] . ' Room with ' . $room_title_base_on_bed[$room_bathroom] . _n(' Bathroom',  ' Bathrooms', $room_bathroom, 'hostel-33'), 'hostel-33');
@@ -43,7 +43,7 @@ if ($room_bed) {
       <?php esc_html_e('Book now', 'hostel-33'); ?>
     </button>
     <p>
-      <i class="fa-solid fa-circle-dot" style="color: <?php $room_status ? 'var(--colors-contrary)' : 'var(--color-black-50)'; ?>"></i>
+      <i class="fa-solid fa-circle-dot" style="color: <?php echo $room_status ? 'var(--colors-contrary)' : 'var(--colors-black-50)'; ?>"></i>
       <span class="text-300"> <?php
                               if ($room_status) {
                                 echo esc_html__('Available', 'hostel-33');

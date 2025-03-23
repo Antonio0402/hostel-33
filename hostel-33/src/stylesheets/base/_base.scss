@@ -27,6 +27,7 @@ body {
   @include apply-utility('font', 'base');
   @include apply-utility('text', '400');
   @include apply-utility('fw', 'normal');
+  width: 100vw;
 }
 
 nav:where(ol, ul) {

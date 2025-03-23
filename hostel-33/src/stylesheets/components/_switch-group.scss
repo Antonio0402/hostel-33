@@ -5,16 +5,32 @@
   background-color: get-color('black-50');
   @include apply-utility('rounded', 'full');
   height: 68px;
-  padding: 8px;
+  padding: var(--group-padding);
+  position: relative;
 
   input[type='radio'] {
     display: none;
   }
 
+  label[data-style='switch'] {
+    position: relative;
+    cursor: pointer;
+    transition: color 0.3s ease;
+    padding: var(--padding-block) var(--padding-inline);
+    z-index: 2;
+  }
+
   label[data-style='switch'].active {
-    padding: 12px 24px;
-    background-color: get-color('primary');
     color: white;
-    transition: all 0.3s ease-in-out;
+  }
+
+  .switch-highlight {
+    position: absolute;
+    background-color: get-color('primary');
+    @include apply-utility('rounded', 'full');
+    top: 8px;
+    height: calc(100% - 16px);
+    transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+    z-index: 1;
   }
 }
