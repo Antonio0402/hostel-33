@@ -9,7 +9,7 @@ class AddressMap
 
   public function get_address()
   {
-    check_ajax_referer('wp_rest', 'nonce');
+    check_ajax_referer('wp_get_address_nonce', 'nonce');
 
     if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
       wp_send_json_error('Only POST requests are allowed');

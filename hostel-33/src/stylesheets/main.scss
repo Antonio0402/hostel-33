@@ -24,7 +24,9 @@
 // 5. Pages
 @use 'pages/home';
 @use 'pages/contact';
+@use 'pages/archive-room';
 
 // 6. Themes
 @use 'themes/default';
 // Generate utilities after everything else
+@use 'vendors/forminator';

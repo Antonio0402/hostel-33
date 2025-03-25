@@ -33,7 +33,7 @@
       </div>
     </div>
     <div class="support-form">
-      <form class="support-card">
+      <form class="support-card" id="hostel33-support-form" method="POST">
         <div class="logo">
           <a href="<?php echo site_url(); ?>">
             <img src="<?php echo esc_url(site_url('/wp-content/uploads/2025/03/hostel-33-logo.png')) ?>" alt="<?php bloginfo('name'); ?>">
@@ -44,6 +44,7 @@
           <p class="description"><?php esc_html_e('
 Please fill in your phone number for direct support and latest deal.', 'hostel-33'); ?></p>
           <input type="text" name="phone-input" id="phone-input" placeholder="<?php esc_html_e('Enter your phone number', 'hostel-33') ?>">
+          <div class="form-message"></div>
         </div>
         <div class="button-group">
           <button type="submit" class="btn btn-primary" data-variant="btn-sm"><?php esc_html_e('call me', 'hostel-33'); ?></button>

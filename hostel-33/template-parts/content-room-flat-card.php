@@ -18,12 +18,11 @@ if ($room_bed) {
 } else {
   $room_title = get_the_title();
 }
-?>
 
-<figure class="room-card">
+?>
+<figure class="room-card" data-style="room-card-flat">
   <header>
     <img src="<?php echo $room_image['url']; ?>" alt="<?php echo $room_image['alt']; ?>">
-    <div class="price | color-primary text-400"><?php echo format_money($room_price); ?></div>
   </header>
   <figcaption class="content">
     <h4 class="title | text-400"><?php echo $room_title; ?></h4>
@@ -37,21 +36,18 @@ if ($room_bed) {
         <span class="text-400 color-black"><?php echo $room_bathroom . ' ' . _n('bathroom', 'bathrooms', $room_bathroom, 'hostel-33') ?></span>
       </span>
     </div>
+    <div class="room-price color-primary text-500 fw-medium"><?php echo format_money($room_price) . ' / ' . esc_html__('Night', 'hostel') ?></div>
+    <p class="room-description text-300"><?php if (has_excerpt()) {
+                                            echo get_the_excerpt();
+                                          } else {
+                                            echo wp_trim_words(get_the_content(), 18);
+                                          } ?>
+      Generous floorspace and magnificent original ceiling beams mark out these deliciously decadent rooms with their precious silk lampshades and sapient fin de siècle design touches. What better way to celebrate the joyful lightness by Cassida hotels.
+    </p>
   </figcaption>
   <footer>
-    <button class="btn room-card__book-now | color-primary text-400" data-variant="btn-sm" data-style="btn-outline">
-      <?php esc_html_e('Book now', 'hostel-33'); ?>
-    </button>
-    <p>
-      <i class="fa-solid fa-circle-dot" style="color: <?php echo $room_status ? 'var(--colors-contrary)' : 'var(--colors-black-50)'; ?>"></i>
-      <span class="text-300"> <?php
-                              if ($room_status) {
-                                echo esc_html__('Available', 'hostel-33');
-                              } else {
-                                echo esc_html__('Not available', 'hostel-33');
-                              }
-                              ?>
-      </span>
-    </p>
+    <a class="btn room-card__explore | color-primary text-400" data-variant="btn-sm" data-style="gradient" href="<?php the_permalink(); ?>">
+      <?php esc_html_e('Explore now', 'hostel-33'); ?>
+    </a>
   </footer>
 </figure>

@@ -10,7 +10,7 @@ class SwitchGroup
   public function switch_branch()
   {
 
-    check_ajax_referer('wp_rest', 'nonce');
+    check_ajax_referer('wp_switch_branch_nonce', 'nonce');
 
 
     if ($_SERVER['REQUEST_METHOD'] !== 'POST') {

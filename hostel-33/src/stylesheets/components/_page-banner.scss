@@ -56,23 +56,50 @@
       }
     }
   }
+}
+
+.page-banner__wrapper {
+  display: relative;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
 
   .page-banner__content {
     max-width: 1200px;
     padding-block: 38px;
     margin-inline: auto;
     text-transform: uppercase;
+    .page-banner__title,
+    .page-banner__subtitle {
+      color: white;
+      @include apply-utility('fw', 'medium');
+    }
 
     .page-banner__title {
       @include apply-utility('text', '500');
-      color: white;
-      @include apply-utility('fw', 'medium');
       @include media-query('sm') {
         @include apply-utility('text', '600');
       }
       @include media-query('md') {
         @include apply-utility('text', '800');
       }
+    }
+
+    .page-banner__subtitle {
+      @include apply-utility('text', '300');
+      @include media-query('sm') {
+        @include apply-utility('text', '400');
+      }
+      @include media-query('md') {
+        @include apply-utility('text', '500');
+      }
+    }
+
+    &.page-banner--centered {
+      display: grid;
+      gap: 12px;
+      place-items: center;
+      height: 400px;
     }
   }
 }

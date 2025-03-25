@@ -300,7 +300,10 @@ class AddressMap extends _branch_switch_js__WEBPACK_IMPORTED_MODULE_0__["default
     }
   }
 }
-new AddressMap();
+// Initialize form when DOM is loaded
+document.addEventListener('DOMContentLoaded', () => {
+  new AddressMap();
+});
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (AddressMap);
 })();
 

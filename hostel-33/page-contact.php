@@ -73,22 +73,23 @@ get_header();
             </div>
           <?php endif; ?>
         </div>
-        <form action="" method="post" class="contact-form">
+        <form action="" method="post" class="contact-form" id="hostel33-contact-form">
           <div class="contact-form-group">
             <div class="contact-form-item">
-              <label for="contact-form-name">Name</label>
-              <input type="text" name="contact-form-name" placeholder="<?php esc_html_e('Enter your name', 'hostel-33') ?>" required>
+              <label for="contact-form-name"><?php esc_html_e('Name', 'hostel-33') ?></label>
+              <input id="contact-form-name" type="text" name="contact-form-name" placeholder="<?php esc_html_e('Enter your name', 'hostel-33') ?>" required>
             </div>
             <div class="contact-form-item">
-              <label for="contact-form-email">Email</label>
-              <input type="email" name="contact-form-email" placeholder="<?php esc_html_e('Enter your email', 'hostel-33') ?>" required>
+              <label for="contact-form-email"><?php esc_html_e('Email', 'hostel-33') ?></label>
+              <input id="contact-form-email" type="email" name="contact-form-email" placeholder="<?php esc_html_e('Enter your email', 'hostel-33') ?>" required>
             </div>
           </div>
           <div class="contact-form-item">
-            <label for="contact-form-message">Message</label>
-            <textarea name="message" placeholder="Your Message" required></textarea>
+            <label for="contact-form-message"><?php esc_html_e('Message', 'hostel-33') ?></label>
+            <textarea id="contact-form-message" name="contact-form-message" placeholder="<?php esc_html_e('Your Message', 'hostel-33') ?>" required></textarea>
           </div>
-          <button type="submit" class="btn contact-form-submit" data-style="gradient">Send Message<i class="fa-solid fa-paper-plane"></i></button>
+          <p class="contact-form-message"></p>
+          <button type="submit" class="btn contact-form-submit" data-style="gradient"><?php esc_html_e('Send Message', 'hostel-33') ?><i class="fa-solid fa-paper-plane"></i></button>
         </form>
       </div>
       <?php if (get_edit_post_link()) : ?>

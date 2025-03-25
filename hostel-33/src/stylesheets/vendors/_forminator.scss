@@ -1,0 +1,32 @@
+@use '../vendors/' as *;
+@use '../components/button' as b;
+
+.forminator-ui#forminator-module-131.forminator-design--material .forminator-button-submit {
+  @extend .btn;
+  border: 2.8px solid white;
+  margin-inline: auto;
+  margin-top: 24px;
+}
+
+.forminator-ui.forminator-custom-form:not(.forminator-size--small)[data-grid='open']
+  .forminator-col.form-book-now__section {
+  padding-top: 24px;
+  display: flex;
+  justify-content: center;
+}
+
+.forminator-ui.forminator-custom-form:not(.forminator-size--small)[data-grid='open']
+  .forminator-col.form-book-now__visitor-type
+  > * {
+  display: grid;
+  grid-auto-flow: column;
+  align-items: baseline;
+  gap: 16px;
+  & > * {
+    margin: 0;
+  }
+}
+
+.forminator-row:has(> .form-book-now__extra-service) {
+  align-items: center;
+}

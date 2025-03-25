@@ -1596,6 +1596,9 @@ a:hover, a:active, a:focus, a:focus-within {
     width: 114px;
     height: 114px;
   }
+  .two-column-section[data-section=exclusive-advantages] .advantages .advantages-list .advantage-item .icon-wrapper > * {
+    font-size: 2em;
+  }
 }
 .two-column-section[data-section=exclusive-advantages] .advantages .advantages-list .advantage-item p {
   font-size: 1.3125rem;
@@ -1702,13 +1705,28 @@ a:hover, a:active, a:focus, a:focus-within {
 
 .two-column-section[data-section=contact-section] {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
   justify-content: space-between;
-  gap: 132px;
-  padding-block: 96px;
+  gap: 64px;
+  padding-bottom: 40px;
+  padding-inline: 24px;
+}
+@media (min-width: 1024px) {
+  .two-column-section[data-section=contact-section] {
+    padding-block: 96px;
+    gap: 132px;
+    grid-template-columns: 1fr 1fr;
+    grid-auto-rows: auto;
+  }
 }
 
-.btn {
+.archive-section {
+  display: grid;
+  row-gap: 224px;
+  padding: 24px;
+}
+
+.btn, .forminator-ui#forminator-module-131.forminator-design--material .forminator-button-submit {
   font-size: 1.3125rem;
   font-weight: 500;
   border-radius: 100em;
@@ -1723,26 +1741,28 @@ a:hover, a:active, a:focus, a:focus-within {
   cursor: pointer;
 }
 
-.btn[data-style=btn-cta] {
+.btn[data-style=btn-cta], .forminator-ui#forminator-module-131.forminator-design--material [data-style=btn-cta].forminator-button-submit {
   background-color: #893229;
   color: white;
   font-size: 1rem;
   padding-inline: clamp(1rem, 0.93rem + 0.36vw, 1.25rem);
 }
 @media (min-width: 768px) {
-  .btn[data-style=btn-cta] {
+  .btn[data-style=btn-cta], .forminator-ui#forminator-module-131.forminator-design--material [data-style=btn-cta].forminator-button-submit {
     font-size: 1.3125rem;
     padding-inline: clamp(1.5rem, 1.39rem + 0.54vw, 1.88rem);
   }
 }
 
-.btn[data-style=btn-cta]:hover,
+.btn[data-style=btn-cta]:hover, .forminator-ui#forminator-module-131.forminator-design--material [data-style=btn-cta].forminator-button-submit:hover,
 .btn[data-style=btn-cta]:focus,
-.btn[data-style=btn-cta]:active {
+.forminator-ui#forminator-module-131.forminator-design--material [data-style=btn-cta].forminator-button-submit:focus,
+.btn[data-style=btn-cta]:active,
+.forminator-ui#forminator-module-131.forminator-design--material [data-style=btn-cta].forminator-button-submit:active {
   background-color: rgb(97.7471910112, 35.6741573034, 29.2528089888);
 }
 
-.btn[data-style=gradient] {
+.btn[data-style=gradient], .forminator-ui#forminator-module-131.forminator-design--material [data-style=gradient].forminator-button-submit {
   background: linear-gradient(90deg, #893229 0%, #bd6126 100%);
   opacity: 0.9;
   color: white;
@@ -1752,50 +1772,54 @@ a:hover, a:active, a:focus, a:focus-within {
   padding-inline: clamp(1rem, 0.93rem + 0.36vw, 1.25rem);
 }
 @media (min-width: 768px) {
-  .btn[data-style=gradient] {
+  .btn[data-style=gradient], .forminator-ui#forminator-module-131.forminator-design--material [data-style=gradient].forminator-button-submit {
     font-size: 1.3125rem;
     padding-inline: clamp(1.5rem, 1.39rem + 0.54vw, 1.88rem);
   }
 }
 
-.btn[data-style=gradient]:hover,
+.btn[data-style=gradient]:hover, .forminator-ui#forminator-module-131.forminator-design--material [data-style=gradient].forminator-button-submit:hover,
 .btn[data-style=gradient]:focus,
-.btn[data-style=gradient]:active {
+.forminator-ui#forminator-module-131.forminator-design--material [data-style=gradient].forminator-button-submit:focus,
+.btn[data-style=gradient]:active,
+.forminator-ui#forminator-module-131.forminator-design--material [data-style=gradient].forminator-button-submit:active {
   opacity: 1;
   box-shadow: 0px 41px 129px rgba(0, 0, 0, 0.27), 0px 33.9015px 47.0871px rgba(0, 0, 0, 0.186295), 0px 19.9149px 22.8599px rgba(0, 0, 0, 0.150199), 0px 9.54743px 11.2064px rgba(0, 0, 0, 0.119801), 0px 3.31592px 4.43101px rgba(0, 0, 0, 0.083705);
 }
 
-.btn[data-style=btn-outline] {
+.btn[data-style=btn-outline], .forminator-ui#forminator-module-131.forminator-design--material [data-style=btn-outline].forminator-button-submit {
   background-color: transparent;
   border: 2.8px solid #893229;
   color: #893229;
 }
 
-.btn[data-style=btn-icon] {
+.btn[data-style=btn-icon], .forminator-ui#forminator-module-131.forminator-design--material [data-style=btn-icon].forminator-button-submit {
   background-color: #893229;
   color: white;
   border-radius: 100em;
   padding-block: clamp(1rem, 0.93rem + 0.36vw, 1.25rem);
   padding-inline: clamp(0.75rem, 0.7rem + 0.27vw, 0.94rem);
 }
-.btn[data-style=btn-icon] > * {
+.btn[data-style=btn-icon] > *, .forminator-ui#forminator-module-131.forminator-design--material [data-style=btn-icon].forminator-button-submit > * {
   background: white;
 }
 
-.btn[data-style=btn-outline]:hover,
+.btn[data-style=btn-outline]:hover, .forminator-ui#forminator-module-131.forminator-design--material [data-style=btn-outline].forminator-button-submit:hover,
 .btn[data-style=btn-outline]:focus,
-.btn[data-style=btn-outline]:active {
+.forminator-ui#forminator-module-131.forminator-design--material [data-style=btn-outline].forminator-button-submit:focus,
+.btn[data-style=btn-outline]:active,
+.forminator-ui#forminator-module-131.forminator-design--material [data-style=btn-outline].forminator-button-submit:active {
   background-color: #893229;
   color: white;
 }
 
-.btn[data-variant=btn-sm] {
+.btn[data-variant=btn-sm], .forminator-ui#forminator-module-131.forminator-design--material [data-variant=btn-sm].forminator-button-submit {
   padding-block: clamp(0.75rem, 0.7rem + 0.27vw, 0.94rem);
   padding-inline: clamp(1.5rem, 1.39rem + 0.54vw, 1.88rem);
   font-size: 1rem;
 }
 
-.btn[data-variant=btn-sm] {
+.btn[data-variant=btn-sm], .forminator-ui#forminator-module-131.forminator-design--material [data-variant=btn-sm].forminator-button-submit {
   padding-block: clamp(0.75rem, 0.7rem + 0.27vw, 0.94rem);
   padding-inline: clamp(1.5rem, 1.39rem + 0.54vw, 1.88rem);
   font-size: 1rem;
@@ -1860,26 +1884,55 @@ a:hover, a:active, a:focus, a:focus-within {
 .page-banner .content .content-wrapper .btn-group {
   align-self: self-start;
 }
-.page-banner .page-banner__content {
+
+.page-banner__wrapper {
+  display: relative;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+}
+.page-banner__wrapper .page-banner__content {
   max-width: 1200px;
   padding-block: 38px;
   margin-inline: auto;
   text-transform: uppercase;
 }
-.page-banner .page-banner__content .page-banner__title {
-  font-size: 1.6875rem;
+.page-banner__wrapper .page-banner__content .page-banner__title,
+.page-banner__wrapper .page-banner__content .page-banner__subtitle {
   color: white;
   font-weight: 500;
 }
+.page-banner__wrapper .page-banner__content .page-banner__title {
+  font-size: 1.6875rem;
+}
 @media (min-width: 640px) {
-  .page-banner .page-banner__content .page-banner__title {
+  .page-banner__wrapper .page-banner__content .page-banner__title {
     font-size: 2.315rem;
   }
 }
 @media (min-width: 768px) {
-  .page-banner .page-banner__content .page-banner__title {
+  .page-banner__wrapper .page-banner__content .page-banner__title {
     font-size: 4.124rem;
   }
+}
+.page-banner__wrapper .page-banner__content .page-banner__subtitle {
+  font-size: 1rem;
+}
+@media (min-width: 640px) {
+  .page-banner__wrapper .page-banner__content .page-banner__subtitle {
+    font-size: 1.3125rem;
+  }
+}
+@media (min-width: 768px) {
+  .page-banner__wrapper .page-banner__content .page-banner__subtitle {
+    font-size: 1.6875rem;
+  }
+}
+.page-banner__wrapper .page-banner__content.page-banner--centered {
+  display: grid;
+  gap: 12px;
+  place-items: center;
+  height: 400px;
 }
 
 .switch-group {
@@ -1970,6 +2023,60 @@ a:hover, a:active, a:focus, a:focus-within {
   gap: 8px;
   padding: 16px;
   margin-top: auto;
+}
+
+.room-card[data-style=room-card-flat] {
+  width: auto;
+  height: auto;
+  border-radius: 0.8em;
+  cursor: pointer;
+  border: 2px solid #bd6126;
+}
+.room-card[data-style=room-card-flat] header {
+  position: relative;
+  width: 100%;
+  max-height: 240px;
+  overflow: hidden;
+}
+.room-card[data-style=room-card-flat] header img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  opacity: 0.8;
+  transition: all 0.5s;
+}
+.room-card[data-style=room-card-flat] header img:hover {
+  transform: scale(1.1);
+  opacity: 1;
+  transition: all 0.5s;
+}
+.room-card[data-style=room-card-flat] .content {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  padding-block: 24px;
+  padding-inline: 40px;
+}
+.room-card[data-style=room-card-flat] .content .room-info {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  text-transform: capitalize;
+}
+.room-card[data-style=room-card-flat] .content .room-info > * > * + * {
+  margin-left: 8px;
+}
+.room-card[data-style=room-card-flat] footer {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 16px;
+  margin-top: auto;
+}
+.room-card[data-style=room-card-flat] footer .btn {
+  width: 100%;
+  justify-content: center;
 }
 
 .control-group {
@@ -2145,20 +2252,33 @@ a:hover, a:active, a:focus, a:focus-within {
 }
 .questions .title {
   text-transform: uppercase;
+  font-size: 2.315rem;
+}
+.questions .description {
+  font-size: 1rem;
 }
 .questions .title,
 .questions .description {
   text-wrap: balance;
   max-width: 60ch;
 }
+@media (min-width: 768px) {
+  .questions .title {
+    font-size: 3.125rem;
+  }
+  .questions .description {
+    font-size: 1.3125rem;
+  }
+}
 .questions .contact-info {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
   justify-content: space-between;
   row-gap: 32px;
 }
 .questions .contact-info > * {
   display: flex;
+  align-items: center;
   gap: 8px;
 }
 .questions .contact-info > * .icon-wrapper {
@@ -2173,8 +2293,24 @@ a:hover, a:active, a:focus, a:focus-within {
   color: white;
 }
 .questions .contact-info > * p {
-  font-size: 1.3125rem;
+  font-size: 1rem;
   font-weight: 500;
+}
+@media (min-width: 768px) {
+  .questions .contact-info > * p {
+    font-size: 1.3125rem;
+  }
+}
+@media (min-width: 768px) {
+  .questions .contact-info > * {
+    align-items: revert;
+  }
+}
+@media (min-width: 768px) {
+  .questions .contact-info {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+  }
 }
 
 .contact-form {
@@ -2183,12 +2319,19 @@ a:hover, a:active, a:focus, a:focus-within {
 }
 .contact-form .contact-form-group {
   display: flex;
+  flex-direction: column;
   flex-wrap: wrap;
-  gap: 48px;
+  gap: 32px;
   width: 100%;
 }
 .contact-form .contact-form-group > * {
   flex: 1;
+}
+@media (min-width: 768px) {
+  .contact-form .contact-form-group {
+    flex-direction: row;
+    gap: 48px;
+  }
 }
 .contact-form .contact-form-item {
   display: grid;
@@ -2216,8 +2359,55 @@ a:hover, a:active, a:focus, a:focus-within {
   color: rgba(43, 35, 34, 0.5);
 }
 .contact-form .contact-form-submit {
-  width: -moz-fit-content;
-  width: fit-content;
+  width: 100%;
+  text-align: center;
+  justify-content: center;
+}
+@media (min-width: 768px) {
+  .contact-form .contact-form-submit {
+    width: -moz-fit-content;
+    width: fit-content;
+  }
+}
+
+.rooms-container {
+  display: grid;
+  padding: 24px;
+  row-gap: 32px;
+}
+@media (min-width: 1024px) {
+  .rooms-container {
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-flow: row;
+    gap: 24px;
+    padding-top: 100px;
+  }
+}
+
+.forminator-ui#forminator-module-131.forminator-design--material .forminator-button-submit {
+  border: 2.8px solid white;
+  margin-inline: auto;
+  margin-top: 24px;
+}
+
+.forminator-ui.forminator-custom-form:not(.forminator-size--small)[data-grid=open] .forminator-col.form-book-now__section {
+  padding-top: 24px;
+  display: flex;
+  justify-content: center;
+}
+
+.forminator-ui.forminator-custom-form:not(.forminator-size--small)[data-grid=open] .forminator-col.form-book-now__visitor-type > * {
+  display: grid;
+  grid-auto-flow: column;
+  align-items: baseline;
+  gap: 16px;
+}
+.forminator-ui.forminator-custom-form:not(.forminator-size--small)[data-grid=open] .forminator-col.form-book-now__visitor-type > * > * {
+  margin: 0;
+}
+
+.forminator-row:has(> .form-book-now__extra-service) {
+  align-items: center;
 }
 
 /*# sourceMappingURL=main.css.map*/

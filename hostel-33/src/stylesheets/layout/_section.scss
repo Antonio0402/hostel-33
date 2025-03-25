@@ -283,6 +283,9 @@
           @include media-query('md') {
             width: 114px;
             height: 114px;
+            & > * {
+              font-size: 2em;
+            }
           }
         }
         p {
@@ -401,8 +404,22 @@
 
 .two-column-section[data-section='contact-section'] {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
   justify-content: space-between;
-  gap: 132px;
-  padding-block: 96px;
+  gap: 64px;
+  padding-bottom: 40px;
+  padding-inline: 24px;
+
+  @include media-query('lg') {
+    padding-block: 96px;
+    gap: 132px;
+    grid-template-columns: 1fr 1fr;
+    grid-auto-rows: auto;
+  }
+}
+
+.archive-section {
+  display: grid;
+  row-gap: 224px;
+  padding: 24px;
 }

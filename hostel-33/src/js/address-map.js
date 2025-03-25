@@ -46,6 +46,8 @@ class AddressMap extends BranchSwitch {
     }
   }
 }
-
-new AddressMap();
+// Initialize form when DOM is loaded
+document.addEventListener('DOMContentLoaded', () => {
+  new AddressMap();
+});
 export default AddressMap;

@@ -11,13 +11,18 @@ function get_page_banner($args = NULL)
   }
 ?>
   <div class="expanded-container">
-    <div class="page-banner" style="<?php if (!isset($args['photo'])) {
-                                      echo 'background-color: var(--colors-primary);';
-                                    } else {
-                                      echo 'background-image: url(' . $args['photo'] . ');';
-                                    } ?>">
-      <div class="page-banner__content">
+    <div class="page-banner__wrapper" style="<?php if (!isset($args['photo'])) {
+                                                echo 'background-color: var(--colors-primary);';
+                                              } else {
+                                                echo 'background-image: url(' . $args['photo'] . ');';
+                                              } ?>">
+      <div class="page-banner__content <?php if (isset($args['photo'])) echo ' page-banner--centered' ?>"=>
         <h1 class="page-banner__title"><?php echo $args['title']; ?></h1>
+        <?php
+        if (isset($args['subtitle'])) {
+          echo '<p class="page-banner__subtitle">' . $args['subtitle'] . '</p>';
+        }
+        ?>
       </div>
     </div>
   </div>
