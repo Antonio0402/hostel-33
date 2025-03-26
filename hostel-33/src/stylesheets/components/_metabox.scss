@@ -1,0 +1,81 @@
+@use '../vendors/' as *;
+
+.metabox {
+  display: grid;
+  margin-top: 1rem;
+  align-items: center;
+
+  &.entry-meta {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+
+    @include media-query('md') {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .metabox__home-link {
+      padding: 10px;
+      @include apply-utility('rounded', 'md');
+      background-color: get-color('black-100');
+      width: fit-content;
+      cursor: pointer;
+
+      &:hover,
+      &:focus,
+      &:active {
+        background-color: get-color('primary');
+        color: white;
+        a {
+          text-decoration: none;
+          color: white;
+        }
+      }
+    }
+
+    .metabox__details {
+      @include apply-utility('text', '300');
+      @include apply-utility('fw', 'light');
+
+      @include media-query('md') {
+        justify-self: end;
+      }
+    }
+  }
+
+  &.single-room-meta {
+    grid-auto-columns: max-content;
+    justify-items: center;
+    margin-top: 0;
+
+    .metabox__room-info {
+      padding: 10px;
+      @include apply-utility('rounded', 'md');
+      background-color: get-color('secondary');
+      color: white;
+      width: 100%;
+      max-width: 400px;
+      min-height: 48px;
+      grid-column: 1 / -1;
+      grid-row: 1 / -1;
+      position: absolute;
+      display: flex;
+      justify-content: space-around;
+      box-shadow:
+        0px 41px 129px rgba(0, 0, 0, 0.27),
+        0px 33.9015px 47.0871px rgba(0, 0, 0, 0.186295),
+        0px 19.9149px 22.8599px rgba(0, 0, 0, 0.150199),
+        0px 9.54743px 11.2064px rgba(0, 0, 0, 0.119801),
+        0px 3.31592px 4.43101px rgba(0, 0, 0, 0.083705);
+
+      & > * {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      @include media-query('lg') {
+        max-width: 800px;
+      }
+    }
+  }
+}

@@ -20,11 +20,15 @@
 @use 'components/control-group';
 @use 'components/support-card';
 @use 'components/menu-item';
+@use 'components/searchform';
+@use 'components/metabox';
 
 // 5. Pages
 @use 'pages/home';
 @use 'pages/contact';
 @use 'pages/archive-room';
+@use 'pages/error-404';
+@use 'pages/single-room';
 
 // 6. Themes
 @use 'themes/default';

@@ -19,9 +19,9 @@ get_header();
 <main id="primary" class="site-main">
 
   <?php
+  echo get_page_banner();
   while (have_posts()) :
     the_post();
-    echo get_page_banner();
     get_template_part('template-parts/content', 'page');
 
     // If comments are open or we have at least one comment, load up the comment template.

@@ -16,7 +16,17 @@ get_header();
   <?php
   while (have_posts()) :
     the_post();
-
+    if (has_excerpt()) {
+      $subtitle = get_the_excerpt();
+    } else {
+      $subtitle = wp_trim_words(get_the_content(), 18);
+    }
+    echo get_page_banner(
+      array(
+        'subtitle' => $subtitle,
+      )
+    );
+    echo '<div class="page-container">';
     get_template_part('template-parts/content', get_post_type());
 
     the_post_navigation(
@@ -30,10 +40,9 @@ get_header();
     if (comments_open() || get_comments_number()) :
       comments_template();
     endif;
-
-  endwhile; // End of the loop.
+    echo '</div>';
+  endwhile; // End of the loop. 
   ?>
-
 </main><!-- #main -->
 
 <?php

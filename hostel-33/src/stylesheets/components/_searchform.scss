@@ -1,0 +1,47 @@
+@use '../vendors/' as *;
+
+.search-form {
+  display: grid;
+  gap: 12px;
+  padding-block: 40px;
+  label {
+    display: none;
+  }
+  .search-form-group {
+    display: flex;
+    border: 1px solid get-color('primary');
+    border-radius: 4px;
+    max-width: 800px;
+    width: 100%;
+    margin: 0 auto;
+
+    #search-box {
+      flex: 1;
+      padding: 12px;
+      border: none;
+      background-color: transparent;
+      color: get-color('primary');
+      font-size: 16px;
+      font-weight: 400;
+      &::placeholder {
+        color: get-color('primary');
+      }
+    }
+
+    .search-submit {
+      background-color: get-color('secondary');
+      color: white;
+      padding: 12px 40px;
+      font-size: 16px;
+      font-weight: 400;
+      border: none;
+      cursor: pointer;
+      text-transform: uppercase;
+      &:hover,
+      &:focus,
+      &:active {
+        background-color: get-color('primary');
+      }
+    }
+  }
+}

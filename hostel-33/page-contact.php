@@ -8,9 +8,9 @@ get_header();
 <main id="primary" class="site-main">
 
   <?php
+  echo get_page_banner();
   while (have_posts()) :
     the_post();
-    echo get_page_banner();
   ?>
     <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
       <?php hostel_33_post_thumbnail(); ?>

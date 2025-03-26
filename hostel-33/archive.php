@@ -21,13 +21,14 @@ if (is_tax()) {
 
 <main id="primary" class="site-main">
 
-  <?php if (have_posts()) {
-    echo get_page_banner(
-      array(
-        'title' => $title,
-        'subtitle' => $subtitle,
-      )
-    );
+  <?php
+  echo get_page_banner(
+    array(
+      'title' => $title,
+      'subtitle' => $subtitle,
+    )
+  );
+  if (have_posts()) {
     echo '<div class="archive-section">';
     while (have_posts()) :
       the_post(); ?>
@@ -61,8 +62,10 @@ if (is_tax()) {
     echo '</div>';
     the_posts_pagination(
       array(
-        'prev_text' => 'Previous &raquo;',
-        'next_text' => '&laquo; Next'
+        'prev_text' => __('Previous', 'hostel-33'),
+        'next_text' => __('Next', 'hostel-33'),
+        'screen_reader_text' => __('Posts navigation', 'hostel-33'),
+        'mid_size' => 1
       )
     );
   } else {

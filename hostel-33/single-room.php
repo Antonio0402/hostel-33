@@ -1,7 +1,7 @@
 <?php
 
 /**
- * The template for displaying archive pages
+ * The template for displaying single room
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
@@ -9,43 +9,39 @@
  */
 
 get_header();
-if (is_tax()) {
-  $term = get_term_by('slug', get_query_var('term'), get_query_var('taxonomy'));
-  $title = $term->name;
-  $subtitle = $term->description;
-} else {
-  $title = __('Rooms and Suites', 'hostel-33');
-  $subtitle = get_the_archive_description();
-  $photo = get_theme_file_uri('/assets/images/rooms-banner.avif');
-}
+
 ?>
 
 <main id="primary" class="site-main">
 
   <?php
-  echo get_page_banner(
-    array(
-      'title' => $title,
-      'subtitle' => $subtitle,
-      'photo' => $photo
-    )
-  );
-  if (have_posts()) {
-    echo '<div class="rooms-container">';
-    while (have_posts()) :
-      the_post();
-      get_template_part('template-parts/content', 'room-flat-card');
-    endwhile;
-    echo '</div>';
-    the_posts_navigation(
+  while (have_posts()) :
+    the_post();
+    if (has_post_thumbnail()) {
+      $photo = get_the_post_thumbnail_url();
+    } else {
+      $photo = get_field('room_thumbnail_images')['url'];
+    }
+    echo get_page_banner(
       array(
-        'prev_text' => 'Previous &raquo;',
-        'next_text' => '&laquo; Next'
+        'photo' => $photo,
+        'title' => 'Room Details',
+        'subtitle' => get_the_title()
       )
     );
-  } else {
-    get_template_part('template-parts/content', 'none');
-  }
+    get_template_part('template-parts/content', get_post_type());
+  endwhile;
+  the_posts_navigation(
+    array(
+      'prev_text' => '<span class="nav-subtitle">' . esc_html__('Previous:', 'hostel-33') . '</span> <span class="nav-title">%title</span>',
+      'next_text' => '<span class="nav-subtitle">' . esc_html__('Next:', 'hostel-33') . '</span> <span class="nav-title">%title</span>',
+    )
+  );
+
+  // If comments are open or we have at least one comment, load up the comment template.
+  if (comments_open() || get_comments_number()) :
+    comments_template();
+  endif;
   ?>
   <div class="extra-services">
     <div class="extra-service__content">

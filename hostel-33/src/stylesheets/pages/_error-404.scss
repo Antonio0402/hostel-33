@@ -1,0 +1,35 @@
+@use '../vendors/' as *;
+
+.error-404 {
+  display: grid;
+  justify-items: center;
+  padding-inline: 24px;
+  gap: 24px;
+  img {
+    max-width: 600px;
+  }
+
+  .widgets-container {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 24px;
+
+    .widget {
+      display: grid;
+      gap: 24px;
+      ul {
+        margin: 0;
+      }
+    }
+
+    @include media-query('md') {
+      flex-direction: row;
+    }
+  }
+
+  @include media-query('md') {
+    padding-inline: 0;
+  }
+}

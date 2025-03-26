@@ -28,6 +28,15 @@
   padding-inline: 1.5rem;
 }
 
+.page-container {
+  display: grid;
+  gap: 1.5rem;
+  margin-inline: auto; /* 2 */
+  max-width: 1200px; /* 1 */
+  padding-inline: 24px;
+  margin-bottom: 24px;
+}
+
 .expanded-container {
   margin-inline: 0;
 

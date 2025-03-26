@@ -52,3 +52,42 @@ define('HOSTEL_33_EXCLUSIVE_ADVANTAGES', [
     'content' => 'Early check-in',
   ],
 ]);
+
+// Extra Services
+define('HOSTEL_33_EXTRA_SERVICES', [
+  [
+    'image' => [
+      'url' => get_theme_file_uri('/assets/images/pork-crackling.jpg'),
+      'alt' => 'Port Crackling',
+    ],
+    'price' => 250000,
+    'title' => 'Port Crackling',
+    'unit' => 'kg'
+  ],
+  [
+    'image' => [
+      'url' => get_theme_file_uri('/assets/images/box-meal.jpg'),
+      'alt' => 'Box Meals',
+    ],
+    'price' => 60000,
+    'title' => 'Box Meals',
+    'unit' => 'box'
+  ],
+  [
+    'image' => [
+      'url' => get_theme_file_uri('/assets/images/offering.jpeg'),
+      'alt' => 'Offering',
+    ],
+    'price' => 0,
+    'title' => 'Offering',
+    'unit' => 'piece'
+  ],
+]);
+
+define('HOSTEL_33_ROOM_TITLE_BASE_ON_BED', [
+  1 => 'Single',
+  2 => 'Double',
+  3 => 'Triple',
+  4 => 'Quad',
+  5 => 'Dormitory',
+]);

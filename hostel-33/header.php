@@ -29,7 +29,7 @@
   <div id="page" class="site">
     <a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e('Skip to content', 'hostel-33'); ?></a>
     <?php
-    $is_front_page = is_front_page() || is_home();
+    $is_front_page = is_front_page();
     ?>
     <header id="masthead" class="site-header" style="position: <?php echo $is_front_page ? 'fixed' : 'relative'; ?>; background-color: <?php echo $is_front_page ? 'transparent' : 'white'; ?>;">
       <div class="header-container">

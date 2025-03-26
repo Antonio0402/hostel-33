@@ -1,0 +1,51 @@
+@use '../vendors/' as *;
+
+.single-room-content {
+  display: grid;
+  gap: 24px;
+  margin-block: 32px;
+
+  .single-room-prices {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+    @include media-query('md') {
+      flex-direction: revert;
+      align-items: center;
+      gap: 48px;
+    }
+  }
+
+  .footer-cta {
+    margin-top: 32px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 24px;
+    .single-room-footer-cta {
+      padding-left: 32px;
+      border-left-width: 5px;
+      border-left-style: solid;
+      border-left-color: get-color('black-500');
+
+      p:first-child {
+        text-transform: uppercase;
+      }
+    }
+
+    @include media-query('md') {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: baseline;
+    }
+
+    .headline {
+      white-space: nowrap;
+
+      @include media-query('md') {
+        white-space: normal;
+      }
+    }
+  }
+}

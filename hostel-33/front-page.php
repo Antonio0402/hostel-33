@@ -83,7 +83,7 @@ $all_branch = new WP_Query(array(
 
 <section id="hostel-rooms-section" class="hostel-rooms-section">
   <div class="headline-section">
-    <h3 class="title | color-primary text-800">Hotel Rooms</h3>
+    <h3 class="title | color-primary text-800"><?php esc_html_e('Hotel Rooms', 'hostel33-33') ?></h3>
     <?php if ($all_branch->have_posts()) :
       $post_count = $all_branch->post_count;
       $index = 0;
