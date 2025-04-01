@@ -2134,7 +2134,6 @@ a:hover, a:active, a:focus, a:focus-within {
   position: absolute;
   inset-block: 0;
   inset-inline: 48px;
-  z-index: 10;
 }
 .control-group .button-prev,
 .control-group .button-next {
@@ -2143,6 +2142,7 @@ a:hover, a:active, a:focus, a:focus-within {
   color: white;
   border: none;
   cursor: pointer;
+  z-index: 30;
   transition: background-color 0.3s;
 }
 .control-group .button-prev:hover,
@@ -2174,6 +2174,7 @@ a:hover, a:active, a:focus, a:focus-within {
   height: 24px;
   width: -moz-fit-content;
   width: fit-content;
+  z-index: 30;
 }
 .control-group .pagination .pagination-bullet {
   width: 16px;
@@ -2195,10 +2196,6 @@ a:hover, a:active, a:focus, a:focus-within {
   .control-group {
     display: revert;
   }
-}
-
-.control-group[data-style=page-banner-control] {
-  display: none;
 }
 
 .control-group[data-style=room-slider-control] .button-prev,

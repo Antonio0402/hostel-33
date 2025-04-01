@@ -175,6 +175,11 @@ function remove_ver_from_cdn($src)
 }
 add_filter('script_loader_src', 'remove_ver_from_cdn', 9999);
 
+/** 
+ * Initialize Theme Options
+ */
+
+require_once get_template_directory() . '/inc/website-setting-init.php';
 
 /**
  * Install Required Plugins for Hostel 33 theme
@@ -223,3 +228,8 @@ require get_template_directory() . '/inc/customizer.php';
 if (defined('JETPACK__VERSION')) {
   require get_template_directory() . '/inc/jetpack.php';
 }
+
+/** 
+ * Honeybadger Error Monitoring
+ */
+require get_template_directory() . '/inc/honeybadger-monitor.php';

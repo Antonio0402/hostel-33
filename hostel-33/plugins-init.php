@@ -27,17 +27,29 @@ function hostel_33_register_required_plugins()
   $plugins = array(
 
     // This is an example of how to include a plugin bundled with a theme.
-    // array(
-    //   'name'               => 'TGM Example Plugin', // The plugin name.
-    //   'slug'               => 'tgm-example-plugin', // The plugin slug (typically the folder name).
-    //   'source'             => get_template_directory() . '/lib/plugins/tgm-example-plugin.zip', // The plugin source.
-    //   'required'           => true, // If false, the plugin is only 'recommended' instead of required.
-    //   'version'            => '', // E.g. 1.0.0. If set, the active plugin must be this version or higher. If the plugin version is higher than the plugin version installed, the user will be notified to update the plugin.
-    //   'force_activation'   => false, // If true, plugin is activated upon theme activation and cannot be deactivated until theme switch.
-    //   'force_deactivation' => false, // If true, plugin is deactivated upon theme switch, useful for theme-specific plugins.
-    //   'external_url'       => '', // If set, overrides default API URL and points to an external URL.
-    //   'is_callable'        => '', // If set, this callable will be be checked for availability to determine if a plugin is active.
-    // ),
+    array(
+      'name'               => 'Display view count - hostel-33', // The plugin name.
+      'slug'               => 'view-count', // The plugin slug (typically the folder name).
+      'source'             => get_template_directory() . '/plugins/view-count.zip', // The plugin source.
+      'required'           => true, // If false, the plugin is only 'recommended' instead of required.
+      'version'            => '', // E.g. 1.0.0. If set, the active plugin must be this version or higher. If the plugin version is higher than the plugin version installed, the user will be notified to update the plugin.
+      'force_activation'   => false, // If true, plugin is activated upon theme activation and cannot be deactivated until theme switch.
+      'force_deactivation' => false, // If true, plugin is deactivated upon theme switch, useful for theme-specific plugins.
+      'external_url'       => '', // If set, overrides default API URL and points to an external URL.
+      'is_callable'        => '', // If set, this callable will be be checked for availability to determine if a plugin is active.
+    ),
+
+    array(
+      'name'               => 'Contact buttons Pro - WPSHARE247', // The plugin name.
+      'slug'               => 'all-in-one-contact-buttons-wpshare247-pro', // The plugin slug (typically the folder name).
+      'source'             => get_template_directory() . '/plugins/wp-content/plugins/all-in-one-contact-buttons-wpshare247-pro.zip', // The plugin source.
+      'required'           => true, // If false, the plugin is only 'recommended' instead of required.
+      'version'            => '', // E.g. 1.0.0. If set, the active plugin must be this version or higher. If the plugin version is higher than the plugin version installed, the user will be notified to update the plugin.
+      'force_activation'   => false, // If true, plugin is activated upon theme activation and cannot be deactivated until theme switch.
+      'force_deactivation' => false, // If true, plugin is deactivated upon theme switch, useful for theme-specific plugins.
+      'external_url'       => '', // If set, overrides default API URL and points to an external URL.
+      'is_callable'        => '', // If set, this callable will be be checked for availability to determine if a plugin is active.
+    ),
 
     array(
       'name'      => 'Redux Framework',
@@ -63,6 +75,16 @@ function hostel_33_register_required_plugins()
     ),
     array(
       'name'      => 'Crop-Thumbnails',
+      'slug'      => 'crop-thumbnails',
+      'required'  => true,
+    ),
+    array(
+      'name'      => 'Forminator Forms – Contact Form, Payment Form & Custom Form Builder',
+      'slug'      => 'crop-thumbnails',
+      'required'  => true,
+    ),
+    array(
+      'name'      => 'Popup Maker – Boost Sales, Conversions, Optins, Subscribers with the Ultimate WP Popups Builder',
       'slug'      => 'crop-thumbnails',
       'required'  => true,
     ),

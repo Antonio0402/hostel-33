@@ -388,7 +388,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 const stickyHeader = new _sticky_header__WEBPACK_IMPORTED_MODULE_1__["default"]();
-// const pageBannerSwiper = new SwiperBanner('.page-banner');
+const pageBannerSwiper = new _swiper_banner__WEBPACK_IMPORTED_MODULE_2__["default"]('.page-banner');
 const roomSliderSwiper = new _swiper_banner__WEBPACK_IMPORTED_MODULE_2__["default"]('.room-slider');
 const hamburgerMenu = new _menu_hamburger__WEBPACK_IMPORTED_MODULE_3__["default"]();
 })();
