@@ -1,8 +1,8 @@
 <?php
 $id = $args['id'];
-$address_detail = get_post_meta($id, 'address_detail', true);
-$phone_number = get_post_meta($id, 'phone_number', true);
-$email = get_post_meta($id, 'branch_email', true);
+$address_detail = get_post_meta($id, 'address_detail', true) ?? ht33_get_option('ht33_company_address') ?? '';
+$phone_number = get_post_meta($id, 'phone_number', true) ?? $phone = ht33_get_option('ht33_company_phone') ?? '';
+$email = get_post_meta($id, 'branch_email', true) ?? ht33_get_option('ht33_company_email') ?? '';
 $map_embed_key = get_post_meta($id, 'map_embed_location', true);
 ?>
 

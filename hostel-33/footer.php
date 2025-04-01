@@ -49,12 +49,22 @@ Please fill in your phone number for direct support and latest deal.', 'hostel-3
         <div class="button-group">
           <button type="submit" class="btn btn-primary" data-variant="btn-sm"><?php esc_html_e('call me', 'hostel-33'); ?></button>
           <div class="social-sharing">
-            <div class="icon-wrapper">
-              <i class="fab fa-facebook-f"></i>
-            </div>
-            <div class="icon-wrapper">
-              <i class="fa-solid fa-paper-plane"></i>
-            </div>
+            <?php if (ht33_get_option('ht33_facebook')): ?>
+              <div class="icon-wrapper">
+                <a href="<?php echo esc_attr(esc_url(ht33_get_option('ht33_facebook') ?? '#')) ?>"><i class="fab fa-facebook-f"></i></a>
+              </div>
+            <?php endif; ?>
+            <?php if (ht33_get_option('ht33_tiktok')):
+            ?>
+              <div class="icon-wrapper">
+                <a href="<?php echo esc_attr(esc_url(ht33_get_option('ht33_tiktok') ?? '#')) ?>"><i class="fa-solid fa-tiktok"></i></a>
+              </div>
+            <?php endif; ?>
+            <?php if (ht33_get_option('ht33_zalo')): ?>
+              <div class="icon-wrapper">
+                <a href="<?php echo esc_attr(esc_url(ht33_get_option('ht33_zalo') ?? '#')) ?>"><i class="fa-solid fa-zalo"></i></a>
+              </div>
+            <?php endif; ?>
           </div>
         </div>
       </form>

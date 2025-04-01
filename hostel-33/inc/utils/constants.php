@@ -12,20 +12,13 @@ if (!defined('ABSPATH')) {
 }
 
 // Banner Images
-define('HOSTEL_33_BANNER_IMAGES', [
+define(
+  'HOSTEL_33_BANNER_IMAGES',
   [
     'image' => get_theme_file_uri('/assets/images/page-banner-1.png'),
     'alt' => 'page-banner-1',
-  ],
-  [
-    'image' => get_theme_file_uri('/assets/images/page-banner-2.png'),
-    'alt' => 'page-banner-2',
-  ],
-  [
-    'image' => get_theme_file_uri('/assets/images/page-banner-3.png'),
-    'alt' => 'page-banner-3',
   ]
-]);
+);
 
 // Selling Points
 define('HOSTEL_33_SELLING_POINTS', [

@@ -17,6 +17,7 @@ get_header();
 
       <div class="entry-content">
         <?php
+        get_template_part('template-parts/content', 'breadcrumb');
         the_content();
         ?>
       </div><!-- .entry-content -->

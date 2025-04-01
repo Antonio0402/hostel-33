@@ -31,7 +31,9 @@ get_header();
         </div>
       <?php
     endif;
-
+    if (!is_home()) {
+      get_template_part('template-parts/content', 'breadcrumb');
+    }
     /* Start the Loop */
     while (have_posts()) :
       the_post();

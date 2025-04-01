@@ -97,7 +97,7 @@ $arr_section[$section_id] =
       array(
         'id' => 'ht33_page_banner',
         'type' => 'image',
-        'is_multiple' => false,
+        'is_multiple' => true,
         'hide_attribute' => false,
         'label' => __('Home Page Banner', OPTIONS_TEXTDOMAIN),
         'default' => '',

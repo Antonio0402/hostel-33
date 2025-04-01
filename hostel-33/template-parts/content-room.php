@@ -29,6 +29,9 @@ if ($room_bed) {
       </span>
     </div>
   </div>
+  <?php
+  get_template_part('template-parts/content', 'breadcrumb');
+  ?>
   <article class="single-room-content">
     <header class="entry-header">
       <h2 class="title | text-700 fw-light"><?php echo $room_title; ?></h2>

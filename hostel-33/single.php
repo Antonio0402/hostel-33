@@ -26,6 +26,7 @@ get_header();
         'subtitle' => $subtitle,
       )
     );
+    get_template_part('template-part/content', 'breadcrumb');
     echo '<div class="page-container">';
     get_template_part('template-parts/content', get_post_type());
 

@@ -31,6 +31,7 @@ if (is_tax()) {
     )
   );
   if (have_posts()) {
+    get_template_part('template-parts/content', 'breadcrumb');
     echo '<div class="rooms-container">';
     while (have_posts()) :
       the_post();

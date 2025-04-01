@@ -4,10 +4,19 @@ if (!session_id()) {
   session_start();
 }
 get_header();
-$banner_images = HOSTEL_33_BANNER_IMAGES;
+$banner_images = get_banner_images_from_theme_options();
+$company_name = ht33_get_option('ht33_company_name') ?? get_bloginfo('name');
+$slogan = ht33_get_option('ht33_slogan') ?? '';
+$cta_text = ht33_get_option('ht33_cta_text') ?? '';
+$cta_href = ht33_get_option('ht33_cta_href') ?? 'hostel-rooms-section';
+$about_us = ht33_get_option('ht33_company_description') ?? '';
+$phone = ht33_get_option('ht33_company_phone') ?? '';
+$formatted_phone = format_phone_number_by_region($phone);
+$competitive_advantages = ht33_get_option('ht33_competitive_advantage') ?? '';
 
-$selling_points = HOSTEL_33_SELLING_POINTS;
-
+foreach (HOSTEL_33_SELLING_POINTS as $key => $point) {
+  $selling_points[$key] = ht33_get_option("ht33_selling_point_" . $key + 1) ?? $point;
+}
 $exclusive_advantages = HOSTEL_33_EXCLUSIVE_ADVANTAGES;
 ?>
 
@@ -29,12 +38,12 @@ $exclusive_advantages = HOSTEL_33_EXCLUSIVE_ADVANTAGES;
   </div>
   <div class="content">
     <div class="content-wrapper">
-      <h1 class="title"><?php esc_html_e('A peaceful place with good-bargain-budget', 'hostel-33') ?></h1>
+      <h1 class="title"><?php esc_html_e($slogan, 'hostel-33') ?></h1>
       <div class="divider"></div>
       <div class="btn-group">
-        <button role="navigation" class="btn" data-style="gradient" data-scroll-to="#hostel-rooms-section">
-          <span class=" screen-reader-text"><?php esc_html_e('check THE UNBEATABLE PRICE today', 'hostel-33'); ?></span>
-          <?php esc_html_e('Check THE UNBEATABLE PRICE today', 'hostel-33'); ?><i class="fa-solid fa-arrow-down"></i></button>
+        <button role="navigation" class="btn" data-style="gradient" data-scroll-to="<?php echo "#$cta_href" ?>">
+          <span class=" screen-reader-text"><?php esc_html_e($cta_text, 'hostel-33'); ?></span>
+          <?php esc_html_e($cta_text, 'hostel-33'); ?><i class="fa-solid fa-arrow-down"></i></button>
       </div>
     </div>
   </div>
@@ -42,11 +51,10 @@ $exclusive_advantages = HOSTEL_33_EXCLUSIVE_ADVANTAGES;
 <section class="two-column-section" data-section="why-choose-us">
   <img src=" <?php echo get_theme_file_uri('/assets/images/hostel-33-exterior.png') ?>" alt="Hostel 33 exterior image">
   <div class="content">
-    <h2 class="heading"><?php esc_html_e('Welcome to hostel 33', 'hostel-33') ?></h2>
+    <h2 class="heading"><?php esc_html_e('Welcome to ' . $company_name, 'hostel-33') ?></h2>
     <p class="sub-heading"><?php esc_html_e('Located in the most crowned in ba temple’s front gate area', 'hostel-33') ?></p>
-    <div class="description"><?php esc_html_e('We are owned-family hostel which are within walking distance of most popular sacred temple located at Chau Doc city of Southwestern region.
-      With more than 30 years of experience, we assure to provide for you a great place to rest where you can feel like home when taking a pilgrimage tour to Ba temple. More than 29 rooms with all air-cooled and hot-water available are neat decoration will bring you a comfortable and intimate atmosphere with your friends and family. ', 'hostel-33') ?></div>
-    <p class="headline" data-style="headline-cta"><strong><?php esc_html_e('Booking call! 0296 - 3861371', 'hostel-33') ?></strong></p>
+    <div class="description"><?php esc_html_e($about_us, 'hostel-33') ?></div>
+    <p class="headline" data-style="headline-cta"><strong><?php esc_html_e('Booking call! ' . $formatted_phone, 'hostel-33') ?></strong></p>
   </div>
 </section>
 
@@ -166,7 +174,7 @@ $all_branch = new WP_Query(array(
       </div>
     </div>
     <div class="advantages">
-      <h3 class="title | text-600 color-black"><?php esc_html_e('Need bigger space for entire family', 'hostel-33') ?></h3>
+      <h3 class="title | text-600 color-black"><?php esc_html_e($competitive_advantages, 'hostel-33') ?></h3>
       <ul class="advantages-list" role="list">
         <?php foreach ($exclusive_advantages as $advantage) : ?>
           <li class="text-500 color-black advantage-item">

@@ -2712,4 +2712,29 @@ div#ui-datepicker-div[style] {
   z-index: 0 !important;
 }
 
+#breadcrumbs {
+  margin-top: clamp(2.5rem, 2.32rem + 0.89vw, 3.13rem);
+}
+.metabox.single-room-meta + #breadcrumbs {
+  margin-bottom: clamp(1.5rem, 1.39rem + 0.54vw, 1.88rem);
+  margin-top: clamp(1.5rem, 1.39rem + 0.54vw, 1.88rem);
+}
+#breadcrumbs > span:first-child {
+  display: inline-flex;
+  align-items: baseline;
+  gap: clamp(0.5rem, 0.46rem + 0.18vw, 0.63rem);
+  width: -moz-fit-content;
+  width: fit-content;
+}
+#breadcrumbs a {
+  text-decoration: none;
+}
+#breadcrumbs a:hover {
+  color: #893229;
+}
+#breadcrumbs [aria-current=page] {
+  color: #bd6126;
+  font-weight: 600;
+}
+
 /*# sourceMappingURL=main.css.map*/
