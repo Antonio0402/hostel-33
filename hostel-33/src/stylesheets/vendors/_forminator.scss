@@ -1,11 +1,14 @@
 @use '../vendors/' as *;
 @use '../components/button' as b;
 
-.forminator-ui#forminator-module-131.forminator-design--material .forminator-button-submit {
-  @extend .btn;
-  border: 2.8px solid white;
-  margin-inline: auto;
-  margin-top: 24px;
+.forminator-ui#forminator-module-131.forminator-design--material {
+  button.forminator-button-submit {
+    @extend .btn;
+    border: 2.8px solid white;
+    margin-inline: auto;
+    margin-top: 24px;
+    @include apply-utility('text', '300');
+  }
 }
 
 .forminator-ui.forminator-custom-form:not(.forminator-size--small)[data-grid='open']
@@ -29,4 +32,8 @@
 
 .forminator-row:has(> .form-book-now__extra-service) {
   align-items: center;
+}
+
+div#ui-datepicker-div[style] {
+  top: 390px !important;
 }

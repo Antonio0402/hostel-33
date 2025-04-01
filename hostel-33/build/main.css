@@ -1735,7 +1735,7 @@ a:hover, a:active, a:focus, a:focus-within {
   padding: 24px;
 }
 
-.btn, .forminator-ui#forminator-module-131.forminator-design--material .forminator-button-submit {
+.btn, .forminator-ui#forminator-module-131.forminator-design--material button.forminator-button-submit {
   font-size: 1.3125rem;
   font-weight: 500;
   border-radius: 100em;
@@ -1750,28 +1750,28 @@ a:hover, a:active, a:focus, a:focus-within {
   cursor: pointer;
 }
 
-.btn[data-style=btn-cta], .forminator-ui#forminator-module-131.forminator-design--material [data-style=btn-cta].forminator-button-submit {
+.btn[data-style=btn-cta], .forminator-ui#forminator-module-131.forminator-design--material button[data-style=btn-cta].forminator-button-submit {
   background-color: #893229;
   color: white;
   font-size: 1rem;
   padding-inline: clamp(1rem, 0.93rem + 0.36vw, 1.25rem);
 }
 @media (min-width: 768px) {
-  .btn[data-style=btn-cta], .forminator-ui#forminator-module-131.forminator-design--material [data-style=btn-cta].forminator-button-submit {
+  .btn[data-style=btn-cta], .forminator-ui#forminator-module-131.forminator-design--material button[data-style=btn-cta].forminator-button-submit {
     font-size: 1.3125rem;
     padding-inline: clamp(1.5rem, 1.39rem + 0.54vw, 1.88rem);
   }
 }
 
-.btn[data-style=btn-cta]:hover, .forminator-ui#forminator-module-131.forminator-design--material [data-style=btn-cta].forminator-button-submit:hover,
+.btn[data-style=btn-cta]:hover, .forminator-ui#forminator-module-131.forminator-design--material button[data-style=btn-cta].forminator-button-submit:hover,
 .btn[data-style=btn-cta]:focus,
-.forminator-ui#forminator-module-131.forminator-design--material [data-style=btn-cta].forminator-button-submit:focus,
+.forminator-ui#forminator-module-131.forminator-design--material button[data-style=btn-cta].forminator-button-submit:focus,
 .btn[data-style=btn-cta]:active,
-.forminator-ui#forminator-module-131.forminator-design--material [data-style=btn-cta].forminator-button-submit:active {
+.forminator-ui#forminator-module-131.forminator-design--material button[data-style=btn-cta].forminator-button-submit:active {
   background-color: rgb(97.7471910112, 35.6741573034, 29.2528089888);
 }
 
-.btn[data-style=gradient], .forminator-ui#forminator-module-131.forminator-design--material [data-style=gradient].forminator-button-submit {
+.btn[data-style=gradient], .forminator-ui#forminator-module-131.forminator-design--material button[data-style=gradient].forminator-button-submit {
   background: linear-gradient(90deg, #893229 0%, #bd6126 100%);
   opacity: 0.9;
   color: white;
@@ -1781,54 +1781,54 @@ a:hover, a:active, a:focus, a:focus-within {
   padding-inline: clamp(1rem, 0.93rem + 0.36vw, 1.25rem);
 }
 @media (min-width: 768px) {
-  .btn[data-style=gradient], .forminator-ui#forminator-module-131.forminator-design--material [data-style=gradient].forminator-button-submit {
+  .btn[data-style=gradient], .forminator-ui#forminator-module-131.forminator-design--material button[data-style=gradient].forminator-button-submit {
     font-size: 1.3125rem;
     padding-inline: clamp(1.5rem, 1.39rem + 0.54vw, 1.88rem);
   }
 }
 
-.btn[data-style=gradient]:hover, .forminator-ui#forminator-module-131.forminator-design--material [data-style=gradient].forminator-button-submit:hover,
+.btn[data-style=gradient]:hover, .forminator-ui#forminator-module-131.forminator-design--material button[data-style=gradient].forminator-button-submit:hover,
 .btn[data-style=gradient]:focus,
-.forminator-ui#forminator-module-131.forminator-design--material [data-style=gradient].forminator-button-submit:focus,
+.forminator-ui#forminator-module-131.forminator-design--material button[data-style=gradient].forminator-button-submit:focus,
 .btn[data-style=gradient]:active,
-.forminator-ui#forminator-module-131.forminator-design--material [data-style=gradient].forminator-button-submit:active {
+.forminator-ui#forminator-module-131.forminator-design--material button[data-style=gradient].forminator-button-submit:active {
   opacity: 1;
   box-shadow: 0px 41px 129px rgba(0, 0, 0, 0.27), 0px 33.9015px 47.0871px rgba(0, 0, 0, 0.186295), 0px 19.9149px 22.8599px rgba(0, 0, 0, 0.150199), 0px 9.54743px 11.2064px rgba(0, 0, 0, 0.119801), 0px 3.31592px 4.43101px rgba(0, 0, 0, 0.083705);
 }
 
-.btn[data-style=btn-outline], .forminator-ui#forminator-module-131.forminator-design--material [data-style=btn-outline].forminator-button-submit {
+.btn[data-style=btn-outline], .forminator-ui#forminator-module-131.forminator-design--material button[data-style=btn-outline].forminator-button-submit {
   background-color: transparent;
   border: 2.8px solid #893229;
   color: #893229;
 }
 
-.btn[data-style=btn-icon], .forminator-ui#forminator-module-131.forminator-design--material [data-style=btn-icon].forminator-button-submit {
+.btn[data-style=btn-icon], .forminator-ui#forminator-module-131.forminator-design--material button[data-style=btn-icon].forminator-button-submit {
   background-color: #893229;
   color: white;
   border-radius: 100em;
   padding-block: clamp(1rem, 0.93rem + 0.36vw, 1.25rem);
   padding-inline: clamp(0.75rem, 0.7rem + 0.27vw, 0.94rem);
 }
-.btn[data-style=btn-icon] > *, .forminator-ui#forminator-module-131.forminator-design--material [data-style=btn-icon].forminator-button-submit > * {
+.btn[data-style=btn-icon] > *, .forminator-ui#forminator-module-131.forminator-design--material button[data-style=btn-icon].forminator-button-submit > * {
   background: white;
 }
 
-.btn[data-style=btn-outline]:hover, .forminator-ui#forminator-module-131.forminator-design--material [data-style=btn-outline].forminator-button-submit:hover,
+.btn[data-style=btn-outline]:hover, .forminator-ui#forminator-module-131.forminator-design--material button[data-style=btn-outline].forminator-button-submit:hover,
 .btn[data-style=btn-outline]:focus,
-.forminator-ui#forminator-module-131.forminator-design--material [data-style=btn-outline].forminator-button-submit:focus,
+.forminator-ui#forminator-module-131.forminator-design--material button[data-style=btn-outline].forminator-button-submit:focus,
 .btn[data-style=btn-outline]:active,
-.forminator-ui#forminator-module-131.forminator-design--material [data-style=btn-outline].forminator-button-submit:active {
+.forminator-ui#forminator-module-131.forminator-design--material button[data-style=btn-outline].forminator-button-submit:active {
   background-color: #893229;
   color: white;
 }
 
-.btn[data-variant=btn-sm], .forminator-ui#forminator-module-131.forminator-design--material [data-variant=btn-sm].forminator-button-submit {
+.btn[data-variant=btn-sm], .forminator-ui#forminator-module-131.forminator-design--material button[data-variant=btn-sm].forminator-button-submit {
   padding-block: clamp(0.75rem, 0.7rem + 0.27vw, 0.94rem);
   padding-inline: clamp(1.5rem, 1.39rem + 0.54vw, 1.88rem);
   font-size: 1rem;
 }
 
-.btn[data-variant=btn-sm], .forminator-ui#forminator-module-131.forminator-design--material [data-variant=btn-sm].forminator-button-submit {
+.btn[data-variant=btn-sm], .forminator-ui#forminator-module-131.forminator-design--material button[data-variant=btn-sm].forminator-button-submit {
   padding-block: clamp(0.75rem, 0.7rem + 0.27vw, 0.94rem);
   padding-inline: clamp(1.5rem, 1.39rem + 0.54vw, 1.88rem);
   font-size: 1rem;
@@ -2676,10 +2676,11 @@ a:hover, a:active, a:focus, a:focus-within {
   }
 }
 
-.forminator-ui#forminator-module-131.forminator-design--material .forminator-button-submit {
+.forminator-ui#forminator-module-131.forminator-design--material button.forminator-button-submit {
   border: 2.8px solid white;
   margin-inline: auto;
   margin-top: 24px;
+  font-size: 1rem;
 }
 
 .forminator-ui.forminator-custom-form:not(.forminator-size--small)[data-grid=open] .forminator-col.form-book-now__section {
@@ -2700,6 +2701,15 @@ a:hover, a:active, a:focus, a:focus-within {
 
 .forminator-row:has(> .form-book-now__extra-service) {
   align-items: center;
+}
+
+div#ui-datepicker-div[style] {
+  top: 390px !important;
+}
+
+#pum-132 {
+  isolation: isolate;
+  z-index: 0 !important;
 }
 
 /*# sourceMappingURL=main.css.map*/
