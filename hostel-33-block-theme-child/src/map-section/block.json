@@ -1,0 +1,8 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "hostel-33/map-section",
+  "title": "Hostel 33 Map Section",
+  "editorScript": "file:./index.js",
+  "render": "file:./render.php"
+}

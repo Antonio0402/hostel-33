@@ -1,0 +1,8 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "hostel-33/archive",
+  "title": "Hostel 33 Archive",
+  "editorScript": "file:./index.js",
+  "render": "file:./render.php"
+}

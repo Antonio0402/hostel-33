@@ -1,0 +1,5 @@
+{
+    "require": {
+        "honeybadger-io/honeybadger-php": "^2.23"
+    }
+}

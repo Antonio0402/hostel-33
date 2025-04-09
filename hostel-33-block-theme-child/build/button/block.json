@@ -1,0 +1,9 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "hostel-33/cta-button",
+  "title": "Hostel 33 CTA Button",
+  "category": "hostel-33",
+  "editorScript": "file:./index.js",
+  "render": "file:./render.php"
+}

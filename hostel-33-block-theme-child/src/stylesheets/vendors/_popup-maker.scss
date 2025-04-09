@@ -1,0 +1,6 @@
+$popup-booking-form-id: 132;
+
+#pum-#{$popup-booking-form-id} {
+  isolation: isolate;
+  z-index: 0 !important;
+}

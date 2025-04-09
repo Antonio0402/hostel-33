@@ -1,0 +1,29 @@
+@use '../vendors/' as *;
+
+#breadcrumbs {
+  @include apply-utility('mt', 'l');
+
+  .metabox.single-room-meta + & {
+    @include apply-utility('mb', 'm');
+    @include apply-utility('mt', 'm');
+  }
+
+  & > span:first-child {
+    display: inline-flex;
+    align-items: baseline;
+    @include apply-utility('gap', '2xs');
+    width: fit-content;
+  }
+
+  a {
+    text-decoration: none;
+    &:hover {
+      color: get-color('primary');
+    }
+  }
+
+  [aria-current='page'] {
+    color: get-color('secondary');
+    @include apply-utility('fw', 'semi-bold');
+  }
+}
