@@ -11,6 +11,18 @@
     }
   ],
   "settings": {
-    "appearanceTools": true
+    "appearanceTools": true,
+    "spacing": {
+      "padding": true,
+      "margin": true,
+      "blockGap": true,
+      "spacingSizes": [
+        {
+          "size": "clamp(1.8rem, 1.8rem + ((1vw - 0.48rem) * 2.885), 3rem)",
+          "slug": "large",
+          "name": "Large"
+        }
+      ]
+    }
   }
 }

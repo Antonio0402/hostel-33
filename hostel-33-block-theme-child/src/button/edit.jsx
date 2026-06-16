@@ -56,7 +56,12 @@ function EditComponent({ attributes, setAttributes }) {
         <ToolbarGroup
           title='Add Link'
         >
-          <ToolbarButton title="Link" onClick={handleEnableLink} icon={link} isActive={!!linkObject?.url} />
+          <ToolbarButton
+            title="Link"
+            onClick={handleEnableLink}
+            icon={link}
+            isActive={!!linkObject?.url}
+          />
         </ToolbarGroup>
         <ToolbarGroup>
           <ToolbarButton isPressed={size === "lg"} onClick={() => handleSelectSize("lg")}>Large</ToolbarButton>
@@ -157,7 +162,11 @@ function EditComponent({ attributes, setAttributes }) {
             // necessary for it to close when you click outside the popover
             __unstableSlotName="__unstable-block-tools-after"
           >
-            <LinkControl settings={[]} value={linkObject} onChange={handleLinkChange} />
+            <LinkControl
+              settings={[]}
+              value={linkObject}
+              onChange={handleLinkChange}
+            />
             <Button variant="primary" onClick={() => setIsLinkPickerVisible(false)} style={{ display: "block", width: "100%" }}>
               Confirm Link
             </Button>

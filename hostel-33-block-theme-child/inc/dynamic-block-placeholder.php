@@ -14,11 +14,20 @@ class DynamicBlockPlaceholder
 
   public function register_dynamic_block()
   {
+    $dependencies = get_stylesheet_directory_uri() . '/build/' . $this->name . '.asset.php';
+    if (file_exists($dependencies)) {
+      $dependencies = require $dependencies;
+    } else {
+      $dependencies = [
+        'dependencies' =>  ['wp-blocks', 'wp-element', 'wp-editor', 'wp-components'],
+        'version' => time()
+      ];
+    }
     wp_register_script(
       $this->name . '-block-script',
-      get_stylesheet_directory_uri() . '/build/' . $this->name . '.js',
-      ['wp-blocks', 'wp-element', 'wp-editor', 'wp-components'],
-      time(),
+      get_stylesheet_directory_uri() . '/build/' . $this->name . '/index.js',
+      $dependencies['dependencies'],
+      $dependencies['version'],
       true
     );
     $register_args = array(
@@ -70,3 +79,28 @@ function new_modern_blocks()
 }
 
 add_action("init", "new_modern_blocks");
+
+//* Registering the block collection on WordPress 6.7+
+// add_action('init', 'create_new_modern_blocks_collection');
+
+// function create_new_modern_blocks_collection()
+// {
+//   $themeDir = get_stylesheet_directory();
+//   $buildDir = $themeDir . '/build';
+//   wp_register_block_metadata_collection($buildDir, $buildDir . '/blocks-manifest.php');
+//   $manifest_data = require $buildDir . '/blocks-manifest.php';
+//   foreach (array_keys($manifest_data) as $block_type) {
+//     register_block_type($buildDir . "/{$block_type}");
+//   }
+// }
+
+
+//* Registering the block collection without loop on WordPress 6.8+
+// add_action('init', 'create_new_modern_blocks_collection');
+
+// function create_new_modern_blocks_collection()
+// {
+  // $themeDir = get_stylesheet_directory();
+  //   $buildDir = $themeDir . '/build';
+  // wp_register_block_types_from_metadata_collection($buildDir, $buildDir . '/blocks-manifest.php');
+// }

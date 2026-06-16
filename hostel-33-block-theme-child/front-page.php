@@ -167,7 +167,7 @@ $all_branch = new WP_Query(array(
           <h4><?php esc_html_e('Stay more - save more', 'hostel-33') ?></h4>
           <p><?php echo esc_html__('Just from ', 'hostel-33') . '<span class="color-primary">' . esc_html__('$20/5 beds', 'hostel-33') . '</span>' . esc_html__(' - room/night', 'hostel-33'); ?></p>
         </div>
-        <button class="btn" data-style="btn-cta" data-variant="btn-sm" onclick="window.open('tel:02963861371')" aria-label="<?php esc_html_e('Call to book', 'hostel-33'); ?>">
+        <button class="btn" data-style="btn-cta" data-variant="btn-sm" onclick="<?php echo esc_js("window.open('tel:02963861371')") ?>" aria-label="<?php esc_html_e('Call to book', 'hostel-33'); ?>">
           <i class="fa-solid fa-phone"></i>
           <?php esc_html_e('Call to book', 'hostel-33') ?>
         </button>
